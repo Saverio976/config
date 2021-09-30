@@ -1,4 +1,4 @@
-#INSTALL - Shell Script
+# INSTALL - Shell Script
 ## some shell script to install some software to fedora
 
 - discord
