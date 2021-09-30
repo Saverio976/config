@@ -1,11 +1,11 @@
 # INSTALL - Shell Script
 ## some shell script to install some software to fedora
 
-- discord
+- discord (https://discord.com/)
 ```sh
 bash discord.sh
 ```
-- vlang
+- vlang (https://vlang.io/)
 ```sh
 bash v.sh
 ```
