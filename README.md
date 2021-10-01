@@ -5,6 +5,10 @@
 ```sh
 bash discord.sh
 ```
+- brave browser (https://brave.com/)
+```sh
+bash brave.sh
+```
 - vlang (https://vlang.io/)
 ```sh
 bash v.sh
