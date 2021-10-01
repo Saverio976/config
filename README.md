@@ -9,6 +9,10 @@ bash discord.sh
 ```sh
 bash brave.sh
 ```
+- youtube-dl (https://github.com/ytdl-org/youtube-dl)
+```sh
+bash youtube_dl URL [directory_path]
+```
 - vlang (https://vlang.io/)
 ```sh
 bash v.sh
