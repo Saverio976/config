@@ -13,6 +13,10 @@ bash brave.sh
 ```sh
 sudo dnf install redshift
 ```
+- bubulle-norminette (https://github.com/aureliancnx/Bubulle-Norminette)
+```sh
+sudo bubulle.sh
+```
 - youtube-dl (https://github.com/ytdl-org/youtube-dl)
 ```sh
 bash youtube_dl URL [directory_path]
