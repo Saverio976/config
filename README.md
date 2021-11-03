@@ -13,6 +13,10 @@ bash brave.sh
 ```sh
 sudo dnf install redshift
 ```
+- vim-plug
+```sh
+bash vim-plug.sh
+```
 - bubulle-norminette (https://github.com/aureliancnx/Bubulle-Norminette)
 ```sh
 sudo bubulle.sh
