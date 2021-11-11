@@ -22,9 +22,14 @@ set colorcolumn=80
 set background=dark
 colorscheme iceberg
 
+function! EnterCursorBar()
+	exec ':! echo -e -n "\x1b[\x36 q"'
+endfunction
+
+command! EnterCursorBar call EnterCursorBar()
+
 " cursor
-autocmd BufWinEnter * :! echo -e -n "\x1b[\x36 q"]
-set shell=/usr/bin/bash
+set shell=/usr/bin/fish
 
 " auto popup
 autocmd VimEnter * ApcEnable
