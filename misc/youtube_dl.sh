@@ -19,8 +19,9 @@ if [ $ECHO_HELP -eq 1 ]
 then
 	echo "bash youtube_dl.sh URL [directory_path]"
 	echo "download online audio with URL"
-	echo "if you provide a directory path, it will download file here, else the current directory is used"
-	exit
+	echo "if you provide a directory path, it will download file here,"
+	echo "else it will donwload to the current directory is used"
+	exit 0
 fi
 
 if [ "$2" == "" ]
@@ -30,20 +31,10 @@ else
 	DIR_PATH=$2
 fi
 
-echo ""
-echo "check if you have the youtube-dl command-line program"
-echo "
 if ! command -v youtube-dl &> /dev/null
 then
-	sudo dnf install youtube-dl
-	exit
+        echo "you need to install 'youtube-dl' package"
+	exit 84
 fi
-"
-if ! command -v youtube-dl &> /dev/null
-then
-        sudo dnf install youtube-dl
-fi
-echo ""
 echo "download audio"
-echo "youtube-dl --ignore-config --no-progress --no-warnings --geo-bypass --yes-playlist --restrict-filenames --no-cache-dir --format 'bestaudio[ext=mp3]/bestaudio' $1 -o '$DIR_PATH/%(title)s.%(ext)s'"
-youtube-dl --ignore-config --no-progress --no-warnings --geo-bypass --yes-playlist --restrict-filenames --no-cache-dir --format 'bestaudio[ext=mp3]/bestaudio' $1 -o "$DIR_PATH/%(title)s.%(ext)s"
+youtube-dl --ignore-config --geo-bypass --yes-playlist --restrict-filenames --no-cache-dir --format 'bestaudio[ext=mp3]/bestaudio' $1 -o "$DIR_PATH/%(title)s.%(ext)s"
