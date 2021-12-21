@@ -11,14 +11,11 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'Heliferepo/VimTek'
-Plug 'skywind3000/vim-auto-popmenu'
-Plug 'skywind3000/vim-dict'
 Plug 'vim-scripts/DoxygenToolkit.vim'
 Plug 'itchyny/vim-cursorword'
 Plug 'itchyny/screensaver.vim'
 Plug 'rhysd/open-pdf.vim'
 Plug 'ycm-core/YouCompleteMe'
-" Plug 'justmao945/vim-clang'
 call plug#end()
 
 " gui settings
@@ -45,15 +42,13 @@ let g:airline_left_sep='>'
 let g:airline_theme='serene'
 let g:airline#extensions#cursormode#enabled = 1
 
-" auto popup
-autocmd VimEnter * ApcEnable
-let g:apc_enable_ft = {'text':1, 'make':1, 'c':1, 'sh':1}
-set cpt=.,k,w,b
 set completeopt=menu,menuone,noselect
 set shortmess+=c
 
 " auto completion
 let g:ycm_global_ycm_extra_conf = '~/.src/SAMPLE_C_PROJECT/.ycm_global_ycm_extra_conf.py'
+let g:ycm_add_preview_to_completeopt = 1
+let g:ycm_key_list_select_completion = ['<TAB>', '<Down>', '<Enter>']
 
 " NERDTree settings
 autocmd StdinReadPre * let s:std_in=1
