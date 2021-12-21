@@ -13,11 +13,17 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'Heliferepo/VimTek'
 Plug 'skywind3000/vim-auto-popmenu'
 Plug 'skywind3000/vim-dict'
+Plug 'vim-scripts/DoxygenToolkit.vim'
+Plug 'itchyny/vim-cursorword'
+Plug 'itchyny/screensaver.vim'
+Plug 'rhysd/open-pdf.vim'
+Plug 'ycm-core/YouCompleteMe'
+" Plug 'justmao945/vim-clang'
 call plug#end()
 
 " gui settings
 set title
-set titlestring=VIM:%F
+set titlestring=%f
 set ruler
 set number
 set relativenumber
@@ -32,7 +38,7 @@ endfunction
 command! EnterCursorBar call EnterCursorBar()
 
 " cursor
-set shell=/usr/bin/fish
+set shell=/usr/bin/bash
 
 " airline
 let g:airline_left_sep='>'
@@ -45,6 +51,9 @@ let g:apc_enable_ft = {'text':1, 'make':1, 'c':1, 'sh':1}
 set cpt=.,k,w,b
 set completeopt=menu,menuone,noselect
 set shortmess+=c
+
+" auto completion
+let g:ycm_global_ycm_extra_conf = '~/.src/SAMPLE_C_PROJECT/.ycm_global_ycm_extra_conf.py'
 
 " NERDTree settings
 autocmd StdinReadPre * let s:std_in=1
