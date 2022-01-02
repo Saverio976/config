@@ -3,6 +3,12 @@
 
 set nocompatible
 
+" force have TERM to have a different value (in tty to have the colorscheme)
+if $TERM == 'linux'
+	echo "run this : `export TERM=screen-256color-bce`"
+	exec ':q!'
+endif
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim plug
 call plug#begin('~/.vim/plugged')
@@ -25,6 +31,9 @@ call plug#end()
 
 " highlight cursor line
 set cursorline
+
+"
+set ttyfast
 
 " terminal name
 set title
@@ -49,14 +58,18 @@ set nowrap
 set completeopt=menu,menuone,noselect
 set completeopt-=preview
 
+" default shell
+set shell=/bin/zsh
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" custom function
+
 " function to have an 'I' cursor
 function! EnterCursorBar()
 	exec ':! echo -e -n "\x1b[\x36 q"'
 endfunction
 command! EnterCursorBar call EnterCursorBar()
-
-" default shell
-set shell=/bin/zsh
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Airline
