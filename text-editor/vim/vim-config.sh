@@ -6,13 +6,34 @@ then
 	exit 84
 fi
 
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-cp .vimrc ~/.vimrc
-mkdir ~/.vim/colors
-cp .vimcolor_iceberg.vim ~/.vim/colors/iceberg.vim
+if [[ $PWD != *text-editor/vim ]]; then
+	echo "you need to be in 'text-editor/vim/' folder to execute this script"
+	exit 84
+fi
 
-echo "now, open vim, run the command 'PlugInstall'
-exit vim, go the the folder '$(HOME)/.vim/plugged/YouCompleteMe/'
-run: python3 install.py --all
-now you have the autocompletion"
+# vim plugin manager
+curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs \
+	https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# save the ancient vimrc config
+if [[ -f $HOME/.vimrc ]]; then
+	mv $HOME/.vimrc $HOME/.vimrc.before
+fi
+
+# create the new vimrc file
+cp .vimrc $HOME/.vimrc
+
+# create folder for themes
+mkdir -p $HOME/.vim/colors
+
+# copy the iceberg theme
+cp .vimcolor_iceberg.vim $HOME/.vim/colors/iceberg.vim
+
+echo "
+-> now,
+- open vim,
+- run the command ':PlugInstall',
+- exit vim,
+- go the the folder '$HOME/.vim/plugged/YouCompleteMe/',
+- run: python3 install.py --all,
+-> GG you have the autocompletion"
