@@ -4,15 +4,17 @@
 
 - install discord (https://discord.com/)
 ```sh
-network/discord.sh
+cd network/
+bash discord.sh
 ```
-- my vim config (install vim-plug in the shell script)
+- my vim config (vim-plug installation in the shell script)
 ```sh
 cd text-editor/vim/
-./vim-config.sh
+bash ./vim-config.sh
 ```
 - youtube-dl (install https://github.com/ytdl-org/youtube-dl first)
 ```sh
+cd misc/
 misc/youtube_dl URL [directory_path]
 ```
 
