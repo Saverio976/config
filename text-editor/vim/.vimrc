@@ -25,7 +25,8 @@ Plug 'itchyny/vim-cursorword'
 Plug 'itchyny/screensaver.vim'
 Plug 'rhysd/open-pdf.vim'
 Plug 'ycm-core/YouCompleteMe'
-Plug 'frazrepo/vim-rainbow'
+Plug 'luochen1990/rainbow'
+" Plug 'frazrepo/vim-rainbow'
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -111,9 +112,9 @@ call screensaver#source#password#set(sha256('vim'))
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vim-rainbow
-" let g:rainbow_active = 1
-au FileType c,cpp,python,rust call rainbow#load()
+" Vim-rainbow / rainbow
+let g:rainbow_active = 1
+" au FileType c,cpp,python,rust call rainbow#load()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
