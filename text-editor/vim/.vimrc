@@ -65,11 +65,20 @@ set shell=/bin/zsh
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " custom function
 
-" function to have an 'I' cursor
+" have an 'I' cursor
 function! EnterCursorBar()
 	exec ':! echo -e -n "\x1b[\x36 q"'
 endfunction
 command! EnterCursorBar call EnterCursorBar()
+
+" execute normatrix
+function! NorMatrix()
+	term ++shell=make -C $HOME/.src/NorMatrix PATH_CHECK=.
+endfunction
+command! NorMatrix call NorMatrix()
+
+map <F4> :<C-U>NorMatrix<CR>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
