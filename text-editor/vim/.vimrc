@@ -73,7 +73,7 @@ command! EnterCursorBar call EnterCursorBar()
 
 " execute normatrix
 function! NorMatrix()
-	term ++shell=make -C $HOME/.src/NorMatrix PATH_CHECK=.
+	term ++shell=echo 'repo : https://github.com/Saverio976/NorMatrix.git' && make -s -C $HOME/.src/NorMatrix PATH_CHECK=.
 endfunction
 command! NorMatrix call NorMatrix()
 
