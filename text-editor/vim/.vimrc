@@ -26,7 +26,7 @@ Plug 'itchyny/screensaver.vim'
 Plug 'rhysd/open-pdf.vim'
 Plug 'ycm-core/YouCompleteMe'
 Plug 'luochen1990/rainbow'
-" Plug 'frazrepo/vim-rainbow'
+Plug 'bfrg/vim-cpp-modern'
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -129,6 +129,13 @@ let g:rainbow_active = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Open-pdf
 let g:pdf_cache_dir = $HOME.'/.vim/.open-pdf.vim.cache'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vim-cpp-modern
+let g:cpp_function_hightlight = 1
+let g:cpp_member_hightlight = 1
+let g:cpp_simple_hightlight = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
