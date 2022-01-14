@@ -29,6 +29,9 @@ mkdir -p $HOME/.vim/colors
 # copy the iceberg theme
 cp .vimcolor_iceberg.vim $HOME/.vim/colors/iceberg.vim
 
+# copy ycm flags
+cp .ycm_global_ycm_extra_conf.py $HOME/.vim/
+
 echo "
 -> now,
 - open vim,

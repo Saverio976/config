@@ -5,8 +5,7 @@ set nocompatible
 
 " force have TERM to have a different value (in tty to have the colorscheme)
 if $TERM == 'linux'
-	echo "run this : `export TERM=screen-256color-bce`"
-	exec ':q!'
+	echo "run this : 'export TERM=screen-256color' to have better"
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -27,6 +26,7 @@ Plug 'rhysd/open-pdf.vim'
 Plug 'ycm-core/YouCompleteMe'
 Plug 'luochen1990/rainbow'
 Plug 'bfrg/vim-cpp-modern'
+Plug 'jreybert/vimagit'
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -73,12 +73,19 @@ command! EnterCursorBar call EnterCursorBar()
 
 " execute normatrix
 function! NorMatrix()
-	term ++shell=echo 'repo : https://github.com/Saverio976/NorMatrix.git' && make -s -C $HOME/.src/NorMatrix PATH_CHECK=$PWD
+	term ++shell=$HOME/.src/NorMatrix/exec.sh
 endfunction
 command! NorMatrix call NorMatrix()
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" keybinding
+
+" excute the normatrix function with <F4>
 map <F4> :<C-U>NorMatrix<CR>
 
+" save the file with Ctrl+s
+map! <C-s> :<Esc>:w<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -97,7 +104,7 @@ let g:airline#extensions#whitespace#enabled = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " YouCompleteMe
-let g:ycm_global_ycm_extra_conf = '~/.src/SAMPLE_C_PROJECT/.ycm_global_ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_global_ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
 "let g:ycm_add_preview_to_completeopt = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
