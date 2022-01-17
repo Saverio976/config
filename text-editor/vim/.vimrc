@@ -3,9 +3,14 @@
 
 set nocompatible
 
-" force have TERM to have a different value (in tty to have the colorscheme)
+" say that the color syntax could be better in tmux in tty
 if $TERM == 'linux'
-	echo "run this : 'export TERM=screen-256color' to have better"
+	echo "you could have better syntax/color in tmux"
+endif
+
+" set mouse for alacritty
+if $TERM == 'alacritty'
+	set ttymouse=sgr
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -61,6 +66,8 @@ set completeopt-=preview
 
 " default shell
 set shell=/bin/zsh
+
+set mouse=a
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " custom function
