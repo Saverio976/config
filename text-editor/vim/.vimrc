@@ -35,6 +35,11 @@ Plug 'jreybert/vimagit'
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" encoding
+set encoding=utf-8
+set fileencoding=utf-8
+set termencoding=utf-8
+
 " highlight cursor line
 set cursorline
 
@@ -54,11 +59,18 @@ set number
 set relativenumber
 
 " theme
+set t_Co=256
+syntax on
 set background=dark
 colorscheme iceberg
 
 " text nowrap
 set nowrap
+
+" tab file completion
+set wildmenu
+set wildmode=list:longest
+set wildignore=*.docx,*.jpg,*.gif,*.pyc,*.o,*.a,*.odt
 
 " menucompletion
 set completeopt=menu,menuone,noselect
@@ -67,7 +79,21 @@ set completeopt-=preview
 " default shell
 set shell=/bin/zsh
 
+" get mouse
 set mouse=a
+
+" search
+set hlsearch
+set ignorecase
+set smartcase
+set showmatch
+
+" tab/space settings
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set autoindent
+set smartindent
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " custom function
@@ -92,13 +118,13 @@ command! NorMatrix call NorMatrix()
 map <F4> :<C-U>NorMatrix<CR>
 
 " save the file with Ctrl+s
-map! <C-s> :<Esc>:w<CR>
+nnoremap <C-s> <Esc>:w<CR>
+inoremap <C-s> <Esc>:w<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Airline
 let g:airline_theme = 'badwolf'
-set t_Co=256
 let g:airline_left_sep = '>'
 let g:airline_right_sep = '<'
 let g:airline_inactive_collapse = 1
