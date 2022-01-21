@@ -1,8 +1,6 @@
 " VIMRC
 " settings for vim
 
-set nocompatible
-
 " say that the color syntax could be better in tmux in tty
 if $TERM == 'linux'
 	echo "you could have better syntax/color in tmux"
@@ -61,6 +59,7 @@ set relativenumber
 " theme
 set t_Co=256
 syntax on
+set synmaxcol=1024
 set background=dark
 colorscheme iceberg
 
@@ -87,6 +86,7 @@ set hlsearch
 set ignorecase
 set smartcase
 set showmatch
+set incsearch
 
 " tab/space settings
 set tabstop=4
