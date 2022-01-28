@@ -30,6 +30,7 @@ Plug 'ycm-core/YouCompleteMe'
 Plug 'luochen1990/rainbow'
 Plug 'bfrg/vim-cpp-modern'
 Plug 'jreybert/vimagit'
+Plug 'skywind3000/vim-terminal-help'
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
