@@ -14,23 +14,35 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim plug
 call plug#begin('~/.vim/plugged')
+
 Plug 'preservim/nerdtree'
-" Plug 'scrooloose/syntastic'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
-" Plug 'tpope/vim-fugitive'
-Plug 'ntpeters/vim-better-whitespace'
+
 Plug 'Heliferepo/VimTek'
 Plug 'vim-scripts/DoxygenToolkit.vim'
+
 Plug 'itchyny/vim-cursorword'
+
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-surround'
+
 Plug 'itchyny/screensaver.vim'
+
 Plug 'rhysd/open-pdf.vim'
+
 Plug 'ycm-core/YouCompleteMe'
+
 Plug 'luochen1990/rainbow'
 Plug 'bfrg/vim-cpp-modern'
-Plug 'jreybert/vimagit'
+Plug 'ntpeters/vim-better-whitespace'
+
 Plug 'skywind3000/vim-terminal-help'
+
+" Plug 'scrooloose/syntastic'
+" Plug 'tpope/vim-fugitive'
+
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
