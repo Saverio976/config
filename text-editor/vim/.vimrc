@@ -39,6 +39,7 @@ Plug 'ycm-core/YouCompleteMe'
 Plug 'luochen1990/rainbow'
 Plug 'bfrg/vim-cpp-modern'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'godlygeek/csapprox'
 
 " Plug 'scrooloose/syntastic'
 " Plug 'tpope/vim-fugitive'
@@ -52,10 +53,12 @@ set fileencoding=utf-8
 set termencoding=utf-8
 
 " highlight cursor line
-set cursorline
+autocmd InsertLeave,WinEnter * set cursorline
+autocmd InsertEnter,WinLeave * set nocursorline
 
 "
 set ttyfast
+set lazyredraw
 
 " terminal name
 set title
@@ -70,6 +73,7 @@ set number
 set relativenumber
 
 " theme
+set list
 set t_Co=256
 syntax on
 set synmaxcol=1024
