@@ -19,6 +19,8 @@ Plug 'preservim/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
+Plug 'vim-scripts/ZoomWin'
+Plug 'skywind3000/vim-terminal-help'
 
 Plug 'Heliferepo/VimTek'
 Plug 'vim-scripts/DoxygenToolkit.vim'
@@ -37,8 +39,6 @@ Plug 'ycm-core/YouCompleteMe'
 Plug 'luochen1990/rainbow'
 Plug 'bfrg/vim-cpp-modern'
 Plug 'ntpeters/vim-better-whitespace'
-
-Plug 'skywind3000/vim-terminal-help'
 
 " Plug 'scrooloose/syntastic'
 " Plug 'tpope/vim-fugitive'
