@@ -36,4 +36,4 @@ function s-f () {
 }
 alias searchf="s-f"
 
-alias normatrix="$HOME/.src/NorMatrix/exec.py"
+alias normatrix="$HOME/.src/NorMatrix/exec.sh"
