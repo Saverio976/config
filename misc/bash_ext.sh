@@ -35,3 +35,5 @@ function s-f () {
     find $CHECK -type f -name "*$1*"
 }
 alias searchf="s-f"
+
+alias normatrix="$HOME/.src/NorMatrix/exec.py"
