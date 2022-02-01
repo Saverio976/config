@@ -74,6 +74,7 @@ set relativenumber
 
 " theme
 set list
+set listchars=eol:$,tab:\ \
 set t_Co=256
 syntax on
 set synmaxcol=1024
