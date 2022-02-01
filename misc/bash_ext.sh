@@ -37,3 +37,17 @@ function s-f () {
 alias searchf="s-f"
 
 alias normatrix="$HOME/.src/NorMatrix/exec.sh"
+
+function clean () {
+    OLDPKG=$(pacman -Qdtq)
+    if [[ "$OLDPKG" != "" ]]
+    then
+        sudo pacman -Rns $OLDPKG
+    fi
+    if [[ "$1" == "y" ]]
+    then
+        yes | sudo pacman -Scc
+    else
+        sudo pacman -Scc
+    fi
+}
