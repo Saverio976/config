@@ -163,6 +163,7 @@ let g:airline#parts#ffenc#skip_expected_string ='utf-8[unix]'
 let g:airline_stl_path_style = 'full'
 let g:airline#extensions#cursormode#enabled = 1
 let g:airline#extensions#whitespace#enabled = 1
+let g:airline_powerline_fonts = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -186,6 +187,8 @@ let NERDTreeWinSize = 25
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " devicon
 let g:webdevicons_enable_nerdtree = 1
+let g:webdevicons_conceal_nerdtree_brackets = 1
+let g:webdevicons_enable_airline_statusline = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
