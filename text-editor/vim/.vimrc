@@ -3,12 +3,12 @@
 
 " say that the color syntax could be better in tmux in tty
 if $TERM == 'linux'
-	echo "you could have better syntax/color in tmux"
+    echo "you could have better syntax/color in tmux"
 endif
 
 " set mouse for alacritty
 if $TERM == 'alacritty'
-	set ttymouse=sgr
+    set ttymouse=sgr
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -22,6 +22,8 @@ Plug 'vim-scripts/ZoomWin'
 Plug 'skywind3000/vim-terminal-help'
 Plug 'itchyny/screensaver.vim'
 Plug 'godlygeek/csapprox'
+Plug 'yegappan/mru'
+
 " status line
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -125,14 +127,14 @@ set smartindent
 
 " have an 'I' cursor
 function! EnterCursorBar()
-	exec ':! echo -e -n "\x1b[\x36 q"'
+    exec ':! echo -e -n "\x1b[\x36 q"'
 endfunction
 command! EnterCursorBar call EnterCursorBar()
 
 " execute normatrix (my Epitech C coding style checker)
 " you may update the command if you dont have the same path
 function! NorMatrix()
-	term ++shell=$HOME/.src/NorMatrix/exec.sh
+    term ++shell=$HOME/.src/NorMatrix/exec.sh
 endfunction
 command! NorMatrix call NorMatrix()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -201,6 +203,11 @@ call screensaver#source#password#set(sha256('vim'))
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " rainbow
 let g:rainbow_active = 1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" mru
+let g:MRU_File = $HOME.'/.vim/.vim_mru_files'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
