@@ -15,31 +15,36 @@ endif
 " vim plug
 call plug#begin('~/.vim/plugged')
 
+" window
 Plug 'preservim/nerdtree'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'airblade/vim-gitgutter'
+Plug 'ryanoasis/vim-devicons'
 Plug 'vim-scripts/ZoomWin'
 Plug 'skywind3000/vim-terminal-help'
+Plug 'itchyny/screensaver.vim'
+Plug 'godlygeek/csapprox'
+" status line
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+" sign colummn
+Plug 'airblade/vim-gitgutter'
 
+" epitech header
 Plug 'Heliferepo/VimTek'
+
+" generate doxygen doc
 Plug 'vim-scripts/DoxygenToolkit.vim'
 
+" text
 Plug 'itchyny/vim-cursorword'
-
 Plug 'terryma/vim-multiple-cursors'
-Plug 'tpope/vim-surround'
-
-Plug 'itchyny/screensaver.vim'
-
-Plug 'rhysd/open-pdf.vim'
-
-Plug 'ycm-core/YouCompleteMe'
-
+Plug 'jiangmiao/auto-pairs'
 Plug 'luochen1990/rainbow'
 Plug 'bfrg/vim-cpp-modern'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'godlygeek/csapprox'
+Plug 'rhysd/open-pdf.vim'
+
+" auto completion
+Plug 'ycm-core/YouCompleteMe'
 
 " Plug 'scrooloose/syntastic'
 " Plug 'tpope/vim-fugitive'
@@ -56,7 +61,7 @@ set termencoding=utf-8
 autocmd InsertLeave,WinEnter * set cursorline
 autocmd InsertEnter,WinLeave * set nocursorline
 
-"
+" fffffast
 set ttyfast
 set lazyredraw
 
@@ -86,7 +91,7 @@ set nowrap
 
 " tab file completion
 set wildmenu
-set wildmode=list:longest
+set wildmode=longest:full
 set wildignore=*.docx,*.jpg,*.gif,*.pyc,*.o,*.a,*.odt
 
 " menucompletion
@@ -94,7 +99,9 @@ set completeopt=menu,menuone,noselect
 set completeopt-=preview
 
 " default shell
-set shell=/bin/zsh
+if filereadable('/bin/zsh')
+    set shell=/bin/zsh
+endif
 
 " get mouse
 set mouse=a
@@ -122,7 +129,8 @@ function! EnterCursorBar()
 endfunction
 command! EnterCursorBar call EnterCursorBar()
 
-" execute normatrix
+" execute normatrix (my Epitech C coding style checker)
+" you may update the command if you dont have the same path
 function! NorMatrix()
 	term ++shell=$HOME/.src/NorMatrix/exec.sh
 endfunction
@@ -138,6 +146,10 @@ map <F4> :<C-U>NorMatrix<CR>
 " save the file with Ctrl+s
 nnoremap <C-s> <Esc>:w<CR>
 inoremap <C-s> <Esc>:w<CR>
+
+" exit with Ctrl+q
+nnoremap <C-q> <Esc>:wq<CR>
+inoremap <C-q> <Esc>:wq<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -148,7 +160,7 @@ let g:airline_right_sep = '<'
 let g:airline_inactive_collapse = 1
 let g:airline_highlighting_cache = 0
 let g:airline#parts#ffenc#skip_expected_string ='utf-8[unix]'
-let g:airline_stl_path_style = 'short'
+let g:airline_stl_path_style = 'full'
 let g:airline#extensions#cursormode#enabled = 1
 let g:airline#extensions#whitespace#enabled = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -172,6 +184,11 @@ let NERDTreeWinSize = 25
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" devicon
+let g:webdevicons_enable_nerdtree = 1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Screensaver
 let g:screensaver_password = 1
 " not serious password
@@ -179,13 +196,14 @@ call screensaver#source#password#set(sha256('vim'))
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vim-rainbow / rainbow
+" rainbow
 let g:rainbow_active = 1
-" au FileType c,cpp,python,rust call rainbow#load()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Open-pdf
+
+" because i dont want another .hidden folder in $HOME
 let g:pdf_cache_dir = $HOME.'/.vim/.open-pdf.vim.cache'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
