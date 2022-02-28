@@ -6,6 +6,12 @@ alias vimconf="vim $HOME/.vimrc"
 # im in the vim matrix
 alias :q="exit"
 
+alias searchd="s-d"
+alias searchf="s-f"
+alias scrcpy="scrcpy -S -w --power-off-on-close --disable-screensaver"
+
+alias normatrix="$HOME/.src/NorMatrix/exec.sh"
+
 if command -v exa &> /dev/null
 then
     # some color
@@ -22,7 +28,6 @@ function s-d () {
     fi
     find $CHECK -type d -name "*$1*"
 }
-alias searchd="s-d"
 
 # search file name
 function s-f () {
@@ -34,11 +39,9 @@ function s-f () {
     fi
     find $CHECK -type f -name "*$1*"
 }
-alias searchf="s-f"
 
-alias normatrix="$HOME/.src/NorMatrix/exec.sh"
-
-function clean () {
+# clean pacman cache
+function cleanpacman () {
     OLDPKG=$(pacman -Qdtq)
     if [[ "$OLDPKG" != "" ]]
     then
@@ -49,5 +52,20 @@ function clean () {
         yes | sudo pacman -Scc
     else
         sudo pacman -Scc
+    fi
+}
+
+# clean yay cache
+function cleanyay () {
+    OLDPKG=$(yay -Qdtq)
+    if [[ "$OLDPKG" != "" ]]
+    then
+        sudo yay -Rns $OLDPKG
+    fi
+    if [[ "$1" == "y" ]]
+    then
+        yes | sudo yay -Scc
+    else
+        sudo yay -Scc
     fi
 }
