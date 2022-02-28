@@ -18,6 +18,12 @@ then
     alias ls="exa -la"
 fi
 
+if command -v bat &> /dev/null
+then
+    # some color
+    alias cat="bat"
+fi
+
 # search directory name
 function s-d () {
     if [[ "$2" == "" ]]
@@ -67,5 +73,13 @@ function cleanyay () {
         yes | sudo yay -Scc
     else
         sudo yay -Scc
+    fi
+}
+
+function man () {
+    if [[ "$1" == "google"  ]]; then
+        xdg-open https://google.com
+    else
+        /bin/man "$1"
     fi
 }
