@@ -7,5 +7,5 @@ then
 fi
 for FILE in $(/usr/bin/ls $1)
 do
-    ffmpeg -y -i $1 -c:a libvorbis -qscale 1 $1
+    ffmpeg -y -i $FILE -c:a libvorbis -qscale 1 $FILE
 done
