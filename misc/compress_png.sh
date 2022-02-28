@@ -7,5 +7,5 @@ then
 fi
 for FILE in $(/usr/bin/ls $1)
 do
-    optipng $FILE
+    optipng $1/$FILE
 done
