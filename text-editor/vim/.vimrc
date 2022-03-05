@@ -50,6 +50,7 @@ Plug 'ycm-core/YouCompleteMe'
 
 " Plug 'scrooloose/syntastic'
 " Plug 'tpope/vim-fugitive'
+Plug 'preservim/tagbar'
 
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
