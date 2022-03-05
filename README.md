@@ -11,6 +11,7 @@ bash discord.sh
 ```sh
 cd text-editor/vim/
 bash ./vim-config.sh
+#and follow the instruction
 ```
 - youtube-dl (install https://github.com/ytdl-org/youtube-dl first)
 ```sh
