@@ -1,0 +1,16 @@
+[user]
+	email =
+	signingkey =
+[core]
+	editor = vim
+[init]
+	defaultBranch = main
+	templateDir = ~/.src/SAMPLE_C_PROJECT
+[pull]
+	rebase = false
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg2
+[alias]
+	history = log --cherry --boundary --decorate --color --oneline --graph
