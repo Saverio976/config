@@ -47,9 +47,13 @@ Plug 'rhysd/open-pdf.vim'
 
 " auto completion
 Plug 'ycm-core/YouCompleteMe'
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'natebosch/vim-lsc'
+Plug 'natebosch/vim-lsc-dart'
+
 
 " Plug 'scrooloose/syntastic'
-" Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 Plug 'preservim/tagbar'
 
 call plug#end()
