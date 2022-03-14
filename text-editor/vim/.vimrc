@@ -139,7 +139,7 @@ command! EnterCursorBar call EnterCursorBar()
 " execute normatrix (my Epitech C coding style checker)
 " you may update the command if you dont have the same path
 function! NorMatrix()
-    term ++shell=$HOME/.src/NorMatrix/exec.sh
+    term "$HOME/.src/NorMatrix/exec.sh"
 endfunction
 command! NorMatrix call NorMatrix()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -195,7 +195,7 @@ let NERDTreeWinSize = 25
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " devicon
-let g:webdevicons_enable_nerdtree = 0
+let g:webdevicons_enable_nerdtree = 1
 let g:webdevicons_conceal_nerdtree_brackets = 1
 let g:webdevicons_enable_airline_statusline = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
