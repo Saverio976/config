@@ -13,4 +13,4 @@
 [gpg]
 	program = gpg2
 [alias]
-	history = log --cherry --boundary --decorate --color --oneline --graph
+	history = log --cherry --boundary --decorate --color --oneline --graph --all
