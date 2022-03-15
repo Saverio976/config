@@ -18,7 +18,6 @@ call plug#begin('~/.vim/plugged')
 " window
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
-Plug 'vim-scripts/ZoomWin'
 Plug 'skywind3000/vim-terminal-help'
 Plug 'itchyny/screensaver.vim'
 Plug 'godlygeek/csapprox'
@@ -44,13 +43,16 @@ Plug 'luochen1990/rainbow'
 Plug 'bfrg/vim-cpp-modern'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'rhysd/open-pdf.vim'
+Plug 'brooth/far.vim'
 
 " auto completion
-Plug 'ycm-core/YouCompleteMe'
-Plug 'dart-lang/dart-vim-plugin'
-Plug 'natebosch/vim-lsc'
-Plug 'natebosch/vim-lsc-dart'
+Plug 'tabnine/YouCompleteMe'
+Plug 'natebosch/vim-lsc', { 'for': ['dart'] }
+Plug 'natebosch/vim-lsc-dart', { 'for': ['dart'] }
 
+" syntax
+Plug 'dart-lang/dart-vim-plugin', { 'for': ['dart'] }
+Plug 'ollykel/v-vim'
 
 " Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
@@ -241,4 +243,16 @@ let g:cpp_simple_hightlight = 1
 "let g:syntastic_echo_current_error = 1
 "let g:syntastic_c_compiler_options = ' -Wall -Wextra -Wpedantic'
 "let g:syntastic_c_include_dirs = [ "lib/include", "include", "../include", "../lib/include"]
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" tagbar
+let g:tagbar_sort = 0
+let g:tagbar_compact = 1
+let g:tagbar_show_tag_linenumbers = 1
+let g:tagbar_file_size_limit = 10000
+let g:tagbar_wrap = 1
+let g:tagbar_show_tag_count = 1
+let g:tagbar_width = min([30, winwidth(0) / 5])
+"autocmd FileType * call tagbar#autoopen(0)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
