@@ -9,6 +9,7 @@ alias :q="exit"
 alias searchd="s-d"
 alias searchf="s-f"
 alias scrcpy="scrcpy -S -w --power-off-on-close --disable-screensaver"
+alias audio-input-toggle="pactl set-source-mute @DEFAULT_SOURCE@ toggle"
 
 alias normatrix="$HOME/.src/NorMatrix/exec.sh"
 
