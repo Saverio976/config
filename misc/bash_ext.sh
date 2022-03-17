@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# conf
+alias i3conf="vim $HOME/.config/i3/config"
 alias zshconf="vim $HOME/.zshrc"
 alias vimconf="vim $HOME/.vimrc"
 
@@ -10,8 +12,11 @@ alias searchd="s-d"
 alias searchf="s-f"
 alias scrcpy="scrcpy -S -w --power-off-on-close --disable-screensaver"
 alias audio-input-toggle="pactl set-source-mute @DEFAULT_SOURCE@ toggle"
-
+alias restartx="sudo systemctl restart lightdm.service"
 alias normatrix="$HOME/.src/NorMatrix/exec.sh"
+
+# prompt gpg password on tty
+export GPG_TTY=$(tty)
 
 if command -v exa &> /dev/null
 then
@@ -78,8 +83,8 @@ function cleanyay () {
 }
 
 function man () {
-    if [[ "$1" == "google"  ]]; then
-        xdg-open https://google.com
+    if [[ "$1" == "google" ]]; then
+        xdg-open 'https://duckduckgo.com/?q='$2
     else
         /bin/man "$1"
     fi
