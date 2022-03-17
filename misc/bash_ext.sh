@@ -16,7 +16,8 @@ alias restartx="sudo systemctl restart lightdm.service"
 alias normatrix="$HOME/.src/NorMatrix/exec.sh"
 
 # prompt gpg password on tty
-export GPG_TTY=$(tty)
+GPG_TTY=$(tty)
+export GPG_TTY
 
 if command -v exa &> /dev/null
 then
