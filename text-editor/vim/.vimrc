@@ -3,7 +3,7 @@
 
 " say that the color syntax could be better in tmux in tty
 if $TERM == 'linux'
-    echo "you could have better syntax/color in tmux"
+    echo "why did you struggle in tty ... because you wanna improve ? (type ENTER)"
 endif
 
 " set mouse for alacritty
@@ -17,11 +17,14 @@ call plug#begin('~/.vim/plugged')
 
 " window
 Plug 'preservim/nerdtree'
-Plug 'ryanoasis/vim-devicons'
+if $TERM != 'linux'
+    Plug 'ryanoasis/vim-devicons'
+endif
 Plug 'skywind3000/vim-terminal-help'
 Plug 'itchyny/screensaver.vim'
 Plug 'godlygeek/csapprox'
 Plug 'yegappan/mru'
+Plug 'chriskempson/base16-vim'
 
 " status line
 Plug 'vim-airline/vim-airline'
@@ -30,10 +33,10 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 
 " epitech header
-Plug 'Heliferepo/VimTek'
+Plug 'Heliferepo/VimTek', { 'for': ['c', 'cpp', 'h'] }
 
 " generate doxygen doc
-Plug 'vim-scripts/DoxygenToolkit.vim'
+Plug 'vim-scripts/DoxygenToolkit.vim', { 'for': ['c', 'cpp', 'h'] }
 
 " text
 Plug 'itchyny/vim-cursorword'
@@ -44,6 +47,7 @@ Plug 'bfrg/vim-cpp-modern'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'rhysd/open-pdf.vim'
 Plug 'brooth/far.vim'
+Plug 'wincent/ferret'
 
 " auto completion
 Plug 'tabnine/YouCompleteMe'
@@ -56,7 +60,8 @@ Plug 'ollykel/v-vim'
 
 " Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
-Plug 'preservim/tagbar'
+Plug 'jreybert/vimagit'
+Plug 'preservim/tagbar', { 'for': ['c' , 'cpp', 'h'] }
 
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -67,6 +72,7 @@ set fileencoding=utf-8
 set termencoding=utf-8
 
 " highlight cursor line
+autocmd BufWinEnter * set cursorline
 autocmd InsertLeave,WinEnter * set cursorline
 autocmd InsertEnter,WinLeave * set nocursorline
 
@@ -93,7 +99,7 @@ set t_Co=256
 syntax on
 set synmaxcol=1024
 set background=dark
-colorscheme iceberg
+colorscheme base16-atelier-forest
 
 " text nowrap
 set nowrap
@@ -113,10 +119,12 @@ if filereadable('/bin/zsh')
 endif
 
 " get mouse
-set mouse=a
+if $TERM != 'linux'
+    set mouse=a
+endif
 
 " search
-set hlsearch
+set nohlsearch
 set ignorecase
 set smartcase
 set showmatch
@@ -141,7 +149,7 @@ command! EnterCursorBar call EnterCursorBar()
 " execute normatrix (my Epitech C coding style checker)
 " you may update the command if you dont have the same path
 function! NorMatrix()
-    term "$HOME/.src/NorMatrix/exec.sh"
+    term ++shell $HOME/.src/NorMatrix/exec.sh
 endfunction
 command! NorMatrix call NorMatrix()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -163,7 +171,7 @@ inoremap <C-q> <Esc>:wq<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Airline
-let g:airline_theme = 'badwolf'
+let g:airline_theme = 'base16'
 let g:airline_left_sep = '>'
 let g:airline_right_sep = '<'
 let g:airline_inactive_collapse = 1
@@ -197,9 +205,11 @@ let NERDTreeWinSize = 25
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " devicon
-let g:webdevicons_enable_nerdtree = 1
-let g:webdevicons_conceal_nerdtree_brackets = 1
-let g:webdevicons_enable_airline_statusline = 1
+if $TERM != 'linux'
+    let g:webdevicons_enable_nerdtree = 1
+    let g:webdevicons_conceal_nerdtree_brackets = 1
+    let g:webdevicons_enable_airline_statusline = 1
+endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -221,7 +231,6 @@ let g:MRU_File = $HOME.'/.vim/.vim_mru_files'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Open-pdf
-
 " because i dont want another .hidden folder in $HOME
 let g:pdf_cache_dir = $HOME.'/.vim/.open-pdf.vim.cache'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
