@@ -43,7 +43,7 @@ Plug 'itchyny/vim-cursorword'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'jiangmiao/auto-pairs'
 Plug 'luochen1990/rainbow'
-Plug 'bfrg/vim-cpp-modern'
+Plug 'bfrg/vim-cpp-modern', { 'for': ['c', 'cpp', 'h'] }
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'rhysd/open-pdf.vim'
 Plug 'brooth/far.vim'
@@ -267,7 +267,6 @@ if filereadable("/bin/ctags")
     let g:tagbar_show_tag_count = 1
     let g:tagbar_indent = 1
     let g:tagbar_width = min([30, winwidth(0) / 5])
-    autocmd FileType * TagbarOpen
-    autocmd WinLeave * TagbarClose
+    let g:tagbar_autoshowtag = 1
 endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
