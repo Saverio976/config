@@ -61,7 +61,9 @@ Plug 'ollykel/v-vim'
 " Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
 Plug 'jreybert/vimagit'
-Plug 'preservim/tagbar'
+if filereadable("/bin/ctags")
+    Plug 'preservim/tagbar'
+endif
 
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -256,14 +258,16 @@ let g:cpp_simple_hightlight = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " tagbar
-let g:tagbar_sort = 0
-let g:tagbar_compact = 1
-let g:tagbar_show_tag_linenumbers = 1
-let g:tagbar_file_size_limit = 10000
-let g:tagbar_wrap = 1
-let g:tagbar_show_tag_count = 1
-let g:tagbar_indent = 1
-let g:tagbar_width = min([30, winwidth(0) / 5])
-autocmd FileType * TagbarOpen
-autocmd WinLeave * TagbarClose
+if filereadable("/bin/ctags")
+    let g:tagbar_sort = 0
+    let g:tagbar_compact = 1
+    let g:tagbar_show_tag_linenumbers = 1
+    let g:tagbar_file_size_limit = 10000
+    let g:tagbar_wrap = 1
+    let g:tagbar_show_tag_count = 1
+    let g:tagbar_indent = 1
+    let g:tagbar_width = min([30, winwidth(0) / 5])
+    autocmd FileType * TagbarOpen
+    autocmd WinLeave * TagbarClose
+endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
