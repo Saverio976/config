@@ -25,6 +25,7 @@ Plug 'itchyny/screensaver.vim'
 Plug 'godlygeek/csapprox'
 Plug 'yegappan/mru'
 Plug 'chriskempson/base16-vim'
+Plug 'pacha/vem-tabline'
 
 " status line
 Plug 'vim-airline/vim-airline'
@@ -85,6 +86,9 @@ set lazyredraw
 " terminal name
 set title
 set titlestring=%f
+
+" tabs
+set hidden
 
 " ruler
 set ruler
@@ -159,16 +163,31 @@ command! NorMatrix call NorMatrix()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " keybinding
 
+let mapleader = ";"
+
 " excute the normatrix function with <F4>
 map <F4> :<C-U>NorMatrix<CR>
 
 " save the file with Ctrl+s
 nnoremap <C-s> <Esc>:w<CR>
-inoremap <C-s> <Esc>:w<CR>
+inoremap <C-s> <Esc>:w<CR>i
 
 " exit with Ctrl+q
-nnoremap <C-q> <Esc>:wq<CR>
+nnoremap <C-q> <Esc>:q<CR>
 inoremap <C-q> <Esc>:wq<CR>
+
+" navigate tab
+nmap <leader><left> <Plug>vem_prev_buffer-
+nmap <leader><right> <Plug>vem_next_buffer-
+nnoremap <leader>1 :1tabnext<CR>
+nnoremap <leader>2 :2tabnext<CR>
+nnoremap <leader>3 :3tabnext<CR>
+nnoremap <leader>4 :4tabnext<CR>
+nnoremap <leader>5 :5tabnext<CR>
+nnoremap <leader>6 :6tabnext<CR>
+nnoremap <leader>7 :7tabnext<CR>
+nnoremap <leader>8 :8tabnext<CR>
+nnoremap <leader>9 :9tabnext<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
