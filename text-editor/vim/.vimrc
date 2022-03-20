@@ -54,11 +54,11 @@ Plug 'bfrg/vim-cpp-modern', { 'for': ['c', 'cpp', 'h'] }
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'rhysd/open-pdf.vim'
 Plug 'brooth/far.vim'
-Plug 'wincent/ferret'
 Plug 'matze/vim-move'
 Plug 'unblevable/quick-scope'
 Plug 'rhysd/vim-grammarous'
 Plug '907th/vim-auto-save'
+Plug 'Shougo/echodoc.vim'
 
 " auto completion
 Plug 'tabnine/YouCompleteMe'
@@ -310,5 +310,35 @@ call wilder#setup({'modes': [':', '/', '?']})
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " auto save
+let g:auto_save = 0
+
+augroup ft_c
+    au!
+    au FileType c let b:auto_save = 1
+augroup END
+
+augroup ft_py
+    au!
+    au FileType py let b:auto_save = 1
+augroup END
+
+augroup ft_dart
+    au!
+    au FileType dart let b:auto_save = 1
+augroup END
+
 let g:auto_save_events = ["InsertLeave", "TextChanged"]
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" fardo
+let g:far#ignore_files = ['.gitignore']
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" echodoc
+let g:echodoc#type = 'echo'
+set cmdheight=2
+set noshowmode
+let g:echodoc_enable_at_startup = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
