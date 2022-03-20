@@ -87,6 +87,6 @@ function man () {
     if [[ "$1" == "google" ]]; then
         xdg-open 'https://duckduckgo.com/?q='$2
     else
-        /bin/man "$1"
+        /bin/man "$@"
     fi
 }
