@@ -28,7 +28,6 @@ Plug 'yegappan/mru'
 Plug 'chriskempson/base16-vim'
 Plug 'pacha/vem-tabline'
 Plug 'mhinz/vim-sayonara'
-Plug 'skywind3000/vim-quickui'
 
 " status line
 Plug 'vim-airline/vim-airline'
