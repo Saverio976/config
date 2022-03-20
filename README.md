@@ -11,7 +11,15 @@ bash discord.sh
 ```sh
 cd text-editor/vim/
 bash ./vim-config.sh
-#and follow the instruction
+vim # it may appears some warnings, just press enter until vim window opens
+:PlugInstall # it will take some minutes to clone all plugins
+:qa
+cd $HOME/.vim/plugged/YouCompleteMe/
+python3 install.py --clangd-completer
+# if you have an error, you need to install python3-devel or python3-dev, depends of your linux distribution
+vim
+:YcmTabnineHub # it will open a web browser, you can configure tabnine in it (an auto completion engine)
+# now, you have a nice vim that dont seems to be vim....
 ```
 - youtube-dl (install https://github.com/ytdl-org/youtube-dl first)
 ```sh
