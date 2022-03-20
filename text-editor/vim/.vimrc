@@ -18,6 +18,7 @@ call plug#begin('~/.vim/plugged')
 " window
 Plug 'preservim/nerdtree'
 if $TERM != 'linux'
+    Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'ryanoasis/vim-devicons'
 endif
 Plug 'skywind3000/vim-terminal-help'
@@ -26,12 +27,18 @@ Plug 'godlygeek/csapprox'
 Plug 'yegappan/mru'
 Plug 'chriskempson/base16-vim'
 Plug 'pacha/vem-tabline'
+Plug 'mhinz/vim-sayonara'
+Plug 'skywind3000/vim-quickui'
 
 " status line
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " sign colummn
-Plug 'airblade/vim-gitgutter'
+if $TERM != 'linux'
+    Plug 'mhinz/vim-signify'
+else
+    Plug 'airblade/vim-gitgutter'
+endif
 
 " epitech header
 Plug 'Heliferepo/VimTek', { 'for': ['c', 'cpp', 'h'] }
@@ -49,11 +56,16 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'rhysd/open-pdf.vim'
 Plug 'brooth/far.vim'
 Plug 'wincent/ferret'
+Plug 'matze/vim-move'
+Plug 'unblevable/quick-scope'
+Plug 'rhysd/vim-grammarous'
+Plug '907th/vim-auto-save'
 
 " auto completion
 Plug 'tabnine/YouCompleteMe'
 Plug 'natebosch/vim-lsc', { 'for': ['dart'] }
 Plug 'natebosch/vim-lsc-dart', { 'for': ['dart'] }
+Plug 'gelguy/wilder.nvim'
 
 " syntax
 Plug 'dart-lang/dart-vim-plugin', { 'for': ['dart'] }
@@ -64,6 +76,11 @@ Plug 'tpope/vim-fugitive'
 Plug 'jreybert/vimagit'
 if filereadable("/bin/ctags")
     Plug 'preservim/tagbar'
+endif
+if filereadable("/bin/cargo")
+    Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary'  }
+else
+    Plug 'liuchengxu/vim-clap'
 endif
 
 call plug#end()
@@ -111,9 +128,9 @@ colorscheme base16-atelier-forest
 set nowrap
 
 " tab file completion
-set wildmenu
-set wildmode=longest:full
-set wildignore=*.docx,*.jpg,*.gif,*.pyc,*.o,*.a,*.odt
+"set wildmenu
+"set wildmode=longest:full
+"set wildignore=*.docx,*.jpg,*.gif,*.pyc,*.o,*.a,*.odt
 
 " menucompletion
 set completeopt=menu,menuone,noselect
@@ -162,7 +179,6 @@ command! NorMatrix call NorMatrix()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " keybinding
-
 let mapleader = ";"
 
 " excute the normatrix function with <F4>
@@ -179,15 +195,7 @@ inoremap <C-q> <Esc>:wq<CR>
 " navigate tab
 nmap <leader><left> <Plug>vem_prev_buffer-
 nmap <leader><right> <Plug>vem_next_buffer-
-nnoremap <leader>1 :1tabnext<CR>
-nnoremap <leader>2 :2tabnext<CR>
-nnoremap <leader>3 :3tabnext<CR>
-nnoremap <leader>4 :4tabnext<CR>
-nnoremap <leader>5 :5tabnext<CR>
-nnoremap <leader>6 :6tabnext<CR>
-nnoremap <leader>7 :7tabnext<CR>
-nnoremap <leader>8 :8tabnext<CR>
-nnoremap <leader>9 :9tabnext<CR>
+nmap <Tab> <Plug>vem_next_buffer-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -258,9 +266,9 @@ let g:pdf_cache_dir = $HOME.'/.vim/.open-pdf.vim.cache'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Vim-cpp-modern
-let g:cpp_function_hightlight = 1
-let g:cpp_member_hightlight = 1
-let g:cpp_simple_hightlight = 1
+let g:cpp_function_highlight = 1
+let g:cpp_member_highlight = 1
+let g:cpp_simple_highlight = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -288,4 +296,20 @@ if filereadable("/bin/ctags")
     let g:tagbar_width = min([30, winwidth(0) / 5])
     let g:tagbar_autoshowtag = 1
 endif
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" clap
+let g:clap_layout = { 'relative': 'editor' }
+let g:clap_theme = 'material_design_dark'
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" wilder
+call wilder#setup({'modes': [':', '/', '?']})
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" auto save
+let g:auto_save_events = ["InsertLeave", "TextChanged"]
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
