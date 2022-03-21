@@ -5,33 +5,41 @@
 if $TERM == 'linux'
     echo "why did you struggle in tty ... because you wanna improve ? (type ENTER)"
 endif
-
-" set mouse for alacritty
-if $TERM == 'alacritty'
-    set ttymouse=sgr
-endif
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim plug
 call plug#begin('~/.vim/plugged')
 
-" window
+" folder explorer
 Plug 'preservim/nerdtree'
 if $TERM != 'linux'
+    " show git status on the folder explorer
     Plug 'Xuyuanp/nerdtree-git-plugin'
+    " nice icons on the folder explorer
     Plug 'ryanoasis/vim-devicons'
 endif
+" open terminal with alt+=
 Plug 'skywind3000/vim-terminal-help'
+" screensaver with :ScreenSaver
 Plug 'itchyny/screensaver.vim'
+" try to bring colorscheme to all terminal
 Plug 'godlygeek/csapprox'
+" last used files with :MRU
 Plug 'yegappan/mru'
+" colorscheme base16
 Plug 'chriskempson/base16-vim'
+
+" tabs file at the bottom
 Plug 'pacha/vem-tabline'
+" quit nicely all buffer with :Sayonara
 Plug 'mhinz/vim-sayonara'
 
 " status line
 Plug 'vim-airline/vim-airline'
+" status line theme
 Plug 'vim-airline/vim-airline-themes'
+
 " sign colummn
 if $TERM != 'linux'
     Plug 'mhinz/vim-signify'
@@ -45,38 +53,59 @@ Plug 'Heliferepo/VimTek', { 'for': ['c', 'cpp', 'h'] }
 " generate doxygen doc
 Plug 'vim-scripts/DoxygenToolkit.vim', { 'for': ['c', 'cpp', 'h'] }
 
-" text
+" underline world cursor
 Plug 'itchyny/vim-cursorword'
+" multiple line cursor with ctrl+n <select> ctrl+n
 Plug 'terryma/vim-multiple-cursors'
+" close ' [ ( { " auto
 Plug 'jiangmiao/auto-pairs'
+" show pairs colors for ' [ { ( "
 Plug 'luochen1990/rainbow'
+" better hightligh
 Plug 'bfrg/vim-cpp-modern', { 'for': ['c', 'cpp', 'h'] }
+" show trailing whitespace
 Plug 'ntpeters/vim-better-whitespace'
+" open pdf on vim
 Plug 'rhysd/open-pdf.vim'
+" file content search
 Plug 'brooth/far.vim'
+" ctrl+hjkl to move line
 Plug 'matze/vim-move'
+" highligh letter to go with f + letter
 Plug 'unblevable/quick-scope'
+" grammar check :GrammarousCheck
 Plug 'rhysd/vim-grammarous'
+" auto-save for some type
 Plug '907th/vim-auto-save'
+" echo function doc
 Plug 'Shougo/echodoc.vim'
 
-" auto completion
+" auto completion general purpose
 Plug 'tabnine/YouCompleteMe'
+" auto completion for dart
 Plug 'natebosch/vim-lsc', { 'for': ['dart'] }
 Plug 'natebosch/vim-lsc-dart', { 'for': ['dart'] }
+" completion for vim commands
 Plug 'gelguy/wilder.nvim'
 
-" syntax
+" syntax dart
 Plug 'dart-lang/dart-vim-plugin', { 'for': ['dart'] }
+" syntax vlang
 Plug 'ollykel/v-vim'
 
-" Plug 'scrooloose/syntastic'
+" syntax check
+"Plug 'scrooloose/syntastic'
+" enter git commands in vim with :Git <commands>
 Plug 'tpope/vim-fugitive'
+" add / commit in a buffer
 Plug 'jreybert/vimagit'
+
 if filereadable("/bin/ctags")
+    " tagbar at the right
     Plug 'preservim/tagbar'
 endif
 if filereadable("/bin/cargo")
+    " useful utility to search something with :Clap
     Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary'  }
 else
     Plug 'liuchengxu/vim-clap'
@@ -84,6 +113,9 @@ endif
 
 call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" settings
 
 " encoding
 set encoding=utf-8
@@ -114,22 +146,25 @@ set colorcolumn=80
 set number
 set relativenumber
 
-" theme
+" show hidden character
 set list
 set listchars=eol:$,tab:\ \
+" term color to 256
 set t_Co=256
+" color syntax
 syntax on
+" no syntax for line > 1024
 set synmaxcol=1024
+" background
 set background=dark
+" colorscheme base16
 colorscheme base16-atelier-forest
 
-" text nowrap
+" nowrap line
 set nowrap
 
 " tab file completion
-"set wildmenu
-"set wildmode=longest:full
-"set wildignore=*.docx,*.jpg,*.gif,*.pyc,*.o,*.a,*.odt
+set wildignore=*.docx,*.jpg,*.gif,*.pyc,*.o,*.a,*.odt
 
 " menucompletion
 set completeopt=menu,menuone,noselect
@@ -140,12 +175,17 @@ if filereadable('/bin/zsh')
     set shell=/bin/zsh
 endif
 
+" set mouse for alacritty
+if $TERM == 'alacritty'
+    set ttymouse=sgr
+endif
 " get mouse
 if $TERM != 'linux'
     set mouse=a
 endif
 
 " search
+" no highligh search after exit
 set nohlsearch
 set ignorecase
 set smartcase
@@ -158,6 +198,7 @@ set shiftwidth=4
 set expandtab
 set autoindent
 set smartindent
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " custom function
@@ -193,8 +234,16 @@ inoremap <C-q> <Esc>:wq<CR>
 
 " navigate tab
 nmap <leader><left> <Plug>vem_prev_buffer-
+nmap <leader><p> <Plug>vem_prev_buffer-
 nmap <leader><right> <Plug>vem_next_buffer-
+nmap <leader><n> <Plug>vem_next_buffer-
 nmap <Tab> <Plug>vem_next_buffer-
+
+" move line
+nmap <C-k> <Plug>MoveLineUp
+nmap <C-j> <Plug>MoveLineDown
+vmap <C-k> <Plug>MoveBlockUp
+vmap <C-j> <Plug>MoveBlockDown
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -217,7 +266,7 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_global_ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_filepath_completion_use_working_dir = 1
 let g:ycm_semantic_triggers = { 'c': ['->', '.', 're!\w{2}'] }
-"let g:ycm_add_preview_to_completeopt = 1
+let g:ycm_add_preview_to_completeopt = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -310,28 +359,7 @@ call wilder#setup({'modes': [':', '/', '?']})
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " auto save
-let g:auto_save = 0
-
-augroup ft_c
-    au!
-    au FileType c let b:auto_save = 1
-augroup END
-
-augroup ft_py
-    au!
-    au FileType py let b:auto_save = 1
-augroup END
-
-augroup ft_dart
-    au!
-    au FileType dart let b:auto_save = 1
-augroup END
-
-augroup ft_json
-    au!
-    au FileType json let b:auto_save = 1
-augroup END
-
+let g:auto_save = 1
 let g:auto_save_events = ["InsertLeave", "TextChanged"]
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -345,4 +373,9 @@ let g:far#ignore_files = ['.gitignore']
 let g:echodoc#type = 'echo'
 set noshowmode
 let g:echodoc_enable_at_startup = 1
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-move
+let g:move_map_keys = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
