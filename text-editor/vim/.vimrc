@@ -327,6 +327,11 @@ augroup ft_dart
     au FileType dart let b:auto_save = 1
 augroup END
 
+augroup ft_json
+    au!
+    au FileType json let b:auto_save = 1
+augroup END
+
 let g:auto_save_events = ["InsertLeave", "TextChanged"]
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -338,7 +343,6 @@ let g:far#ignore_files = ['.gitignore']
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " echodoc
 let g:echodoc#type = 'echo'
-set cmdheight=2
 set noshowmode
 let g:echodoc_enable_at_startup = 1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
