@@ -68,7 +68,7 @@ Plug 'ntpeters/vim-better-whitespace'
 " open pdf on vim
 Plug 'rhysd/open-pdf.vim'
 " file content search
-Plug 'brooth/far.vim'
+Plug 'wincent/ferret'
 " ctrl+hjkl to move line
 Plug 'matze/vim-move'
 " highligh letter to go with f + letter
