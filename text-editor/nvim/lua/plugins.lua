@@ -2,45 +2,61 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-	-- Packer can manage itself
-	use { 'wbthomason/packer.nvim' }
+    -- Packer can manage itself
+    use { 'wbthomason/packer.nvim' }
 
-	use { 'tabnine/YouCompleteMe' }
+    -- completer
+    use { 'tabnine/YouCompleteMe' }
 
-	use { 'mhinz/vim-sayonara' }
+    -- exit tab
+    use { 'mhinz/vim-sayonara' }
 
-	use { 'itchyny/vim-cursorword' }
+    -- cursor underline word
+    use { 'itchyny/vim-cursorword' }
 
-	use { 'Heliferepo/VimTek' }
+    -- epitech header
+    use { 'Heliferepo/VimTek' }
 
-	use { 'ntpeters/vim-better-whitespace' }
+    -- show trailing space
+    use { 'ntpeters/vim-better-whitespace' }
 
-	use { 'unblevable/quick-scope' }
+    -- motion
+    use {
+        'phaazon/hop.nvim',
+        as = 'hop',
+        config = function()
+            require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+        end
+    }
 
-	use { 'Shougo/echodoc.vim' }
+    -- doc on echo zone
+    use { 'Shougo/echodoc.vim' }
 
-	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+    -- syntax higtligh
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
-	use { 'vim-airline/vim-airline' }
+    -- multiple cursor
+    use { 'mg979/vim-visual-multi', branch = 'master' }
 
-	use { 'terryma/vim-multiple-cursors' }
+    -- hightlight for C
+    use { 'bfrg/vim-cpp-modern' }
 
-	use { 'bfrg/vim-cpp-modern' }
+    -- auto save
+    use { '907th/vim-auto-save' }
 
-	use { 'gelguy/wilder.nvim' }
+    -- move block / line
+    use { 'matze/vim-move' }
 
-	use { '907th/vim-auto-save' }
+    -- theme
+    use { 'EdenEast/nightfox.nvim' }
 
-	use { 'matze/vim-move' }
-
-	use { 'EdenEast/nightfox.nvim' }
-
-	use {
-		'kyazdani42/nvim-tree.lua',
-		requires = {
-			'kyazdani42/nvim-web-devicons',
-		},
-		config = function() require'nvim-tree'.setup {
+    -- folder explorer
+    use {
+        'kyazdani42/nvim-tree.lua',
+        requires = {
+            'kyazdani42/nvim-web-devicons',
+        },
+        config = function() require'nvim-tree'.setup {
             open_on_setup = true,
             view = {
                 width = 25,
@@ -48,21 +64,60 @@ return require('packer').startup(function(use)
                 preserve_window_proportions = true
             }
         } end
-	}
+    }
 
-	use {
-		'nvim-telescope/telescope.nvim',
-		requires = { {'nvim-lua/plenary.nvim'} }
-	}
+    -- go to file
+    use {
+        'nvim-telescope/telescope.nvim',
+        requires = { {'nvim-lua/plenary.nvim'} }
+    }
 
-	use {
-		'lewis6991/gitsigns.nvim',
-		requires = {
-			'nvim-lua/plenary.nvim'
-		},
-		config = function()
-			require('gitsigns').setup()
-		end
-	}
+    -- signs
+    use {
+        'lewis6991/gitsigns.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim'
+        },
+        config = function()
+            require('gitsigns').setup()
+        end
+    }
+
+    --
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+        config = function()
+            require('lualine').setup {
+                options = {
+                    icons_enabled = true,
+                    theme = 'auto',
+                    component_separators = { left = '', right = ''},
+                    section_separators = { left = '', right = ''},
+                    disabled_filetypes = {},
+                    always_divide_middle = true,
+                    globalstatus = false,
+                },
+                sections = {
+                    lualine_a = {'mode'},
+                    lualine_b = {'branch', 'diff', 'diagnostics'},
+                    lualine_c = {'filename'},
+                    lualine_x = {'encoding', 'fileformat', 'filetype'},
+                    lualine_y = {'progress'},
+                    lualine_z = {'location'}
+                },
+                inactive_sections = {
+                    lualine_a = {},
+                    lualine_b = {},
+                    lualine_c = {'filename'},
+                    lualine_x = {'location'},
+                    lualine_y = {},
+                    lualine_z = {}
+                },
+                tabline = {},
+                extensions = {}
+        }
+        end
+    }
 
 end)
