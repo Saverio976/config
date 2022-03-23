@@ -35,4 +35,34 @@ return require('packer').startup(function(use)
 
 	use { 'EdenEast/nightfox.nvim' }
 
+	use {
+		'kyazdani42/nvim-tree.lua',
+		requires = {
+			'kyazdani42/nvim-web-devicons',
+		},
+		config = function() require'nvim-tree'.setup {
+            open_on_setup = true,
+            view = {
+                width = 25,
+                height = "100%",
+                preserve_window_proportions = true
+            }
+        } end
+	}
+
+	use {
+		'nvim-telescope/telescope.nvim',
+		requires = { {'nvim-lua/plenary.nvim'} }
+	}
+
+	use {
+		'lewis6991/gitsigns.nvim',
+		requires = {
+			'nvim-lua/plenary.nvim'
+		},
+		config = function()
+			require('gitsigns').setup()
+		end
+	}
+
 end)
