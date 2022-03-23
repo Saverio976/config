@@ -79,7 +79,7 @@ return require('packer').startup(function(use)
             'nvim-lua/plenary.nvim'
         },
         config = function()
-            require('gitsigns').setup()
+            require('gitsigns').setup {}
         end
     }
 
@@ -92,8 +92,8 @@ return require('packer').startup(function(use)
                 options = {
                     icons_enabled = true,
                     theme = 'auto',
-                    component_separators = { left = '', right = ''},
-                    section_separators = { left = '', right = ''},
+                    component_separators = { left = '', right = '' },
+                    section_separators = { left = '', right = '' },
                     disabled_filetypes = {},
                     always_divide_middle = true,
                     globalstatus = false,
@@ -116,7 +116,29 @@ return require('packer').startup(function(use)
                 },
                 tabline = {},
                 extensions = {}
-        }
+            }
+        end
+    }
+
+    -- show buffer
+    use {
+        'akinsho/bufferline.nvim',
+        requires = 'kyazdani42/nvim-web-devicons',
+        config = function()
+            require('bufferline').setup {
+                options = {
+                    mode = "buffers",
+                    show_buffer_close_icons = false
+                }
+            }
+        end
+    }
+
+    use {
+        'TimUntersberger/neogit',
+        requires = 'nvim-lua/plenary.nvim',
+        config = function()
+            require('neogit').setup {}
         end
     }
 

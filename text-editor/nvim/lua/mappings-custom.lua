@@ -19,3 +19,5 @@ nmap('<C-j>', '<Plug>MoveLineDown')
 
 vmap('<C-k>', '<Plug>MoveBlockUp')
 vmap('<C-j>', '<Plug>MoveBlockDown')
+
+nmap('<Tab>', '<Esc>:bNext<CR>')
