@@ -14,6 +14,10 @@ function vmap(shortcut, command)
     map('v', shortcut, command)
 end
 
+function tmap(shortcut, command)
+    map('t', shortcut, command)
+end
+
 nmap('<C-k>', '<Plug>MoveLineUp')
 nmap('<C-j>', '<Plug>MoveLineDown')
 
@@ -21,3 +25,6 @@ vmap('<C-k>', '<Plug>MoveBlockUp')
 vmap('<C-j>', '<Plug>MoveBlockDown')
 
 nmap('<Tab>', '<Esc>:bNext<CR>')
+
+nmap('<A-=>', '<CMD>lua require("FTerm").toggle()<CR>')
+tmap('<A-=>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')

@@ -42,7 +42,14 @@ return require('packer').startup(function(use)
     use { 'bfrg/vim-cpp-modern' }
 
     -- auto save
-    use { '907th/vim-auto-save' }
+    use {
+        'Pocco81/AutoSave.nvim',
+        config = function()
+            require('autosave').setup {
+                enable = true
+            }
+        end
+    }
 
     -- move block / line
     use { 'matze/vim-move' }
@@ -56,14 +63,16 @@ return require('packer').startup(function(use)
         requires = {
             'kyazdani42/nvim-web-devicons',
         },
-        config = function() require'nvim-tree'.setup {
-            open_on_setup = true,
-            view = {
-                width = 25,
-                height = "100%",
-                preserve_window_proportions = true
+        config = function()
+            require'nvim-tree'.setup {
+                open_on_setup = true,
+                view = {
+                    width = 25,
+                    height = "100%",
+                    preserve_window_proportions = true
+                }
             }
-        } end
+        end
     }
 
     -- go to file
@@ -141,5 +150,30 @@ return require('packer').startup(function(use)
             require('neogit').setup {}
         end
     }
+
+    use {
+        'p00f/nvim-ts-rainbow',
+        requires = 'nvim-treesitter/nvim-treesitter',
+        config = function()
+            require('nvim-treesitter.configs').setup {
+                rainbow = {
+                    enable = true,
+                    extended_mode = true,
+                    max_file_lines = 1000, -- Do not enable for files with more than n lines, int
+                }
+            }
+        end
+    }
+
+    use {
+        'steelsojka/pears.nvim',
+        config = function()
+            require('pears').setup()
+        end
+    }
+
+    use { 'numToStr/FTerm.nvim' }
+
+    use { 'andweeb/presence.nvim' }
 
 end)

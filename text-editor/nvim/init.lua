@@ -30,7 +30,7 @@ vim.opt.background = "dark"
 vim.cmd('colorscheme nightfox')
 
 require('ycm-comp')
-require('auto-save')
+-- require('auto-save')
 require('cpp-modern')
 vim.g.move_map_keys = 0
 
