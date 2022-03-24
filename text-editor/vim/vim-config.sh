@@ -6,7 +6,7 @@ then
 	exit 84
 fi
 
-if [[ $PWD != *text-editor/vim ]]; then
+if [[ $PWD != */vim ]]; then
 	echo "you need to be in 'text-editor/vim/' folder to execute this script"
 	exit 84
 fi
