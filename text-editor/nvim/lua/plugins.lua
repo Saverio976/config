@@ -12,7 +12,7 @@ return require('packer').startup(function(use)
     use { 'mhinz/vim-sayonara' }
 
     -- cursor underline word
-    use { 'itchyny/vim-cursorword' }
+    use { 'yamatsum/nvim-cursorline' }
 
     -- epitech header
     use { 'Heliferepo/VimTek' }
@@ -64,12 +64,18 @@ return require('packer').startup(function(use)
             'kyazdani42/nvim-web-devicons',
         },
         config = function()
-            require'nvim-tree'.setup {
+            require('nvim-tree').setup {
+                disable_netrw = true,
                 open_on_setup = true,
                 view = {
                     width = 25,
                     height = "100%",
-                    preserve_window_proportions = true
+                    preserve_window_proportions = true,
+                },
+                actions = {
+                    open_file = {
+                        resize_window = true
+                    }
                 }
             }
         end
@@ -175,5 +181,14 @@ return require('packer').startup(function(use)
     use { 'numToStr/FTerm.nvim' }
 
     use { 'andweeb/presence.nvim' }
+
+    use {
+        'lewis6991/spellsitter.nvim',
+        config = function()
+            require('spellsitter').setup {
+                enable = true
+            }
+        end
+    }
 
 end)
