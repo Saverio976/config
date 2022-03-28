@@ -6,7 +6,18 @@ return require('packer').startup(function(use)
     use { 'wbthomason/packer.nvim' }
 
     -- completer
-    use { 'tabnine/YouCompleteMe' }
+    -- use { 'tabnine/YouCompleteMe' }
+    use { 'neovim/nvim-lspconfig' }
+    use { 'hrsh7th/cmp-nvim-lsp' }
+    use { 'hrsh7th/cmp-buffer' }
+    use { 'hrsh7th/cmp-path' }
+    use { 'hrsh7th/cmp-cmdline' }
+    use { 'hrsh7th/cmp-git' }
+    use { 'hrsh7th/nvim-cmp' }
+    use { 'L3MON4D3/LuaSnip' }
+    use { 'saadparwaiz1/cmp_luasnip' }
+
+    use { 'onsails/lspkind-nvim' }
 
     -- exit tab
     use { 'mhinz/vim-sayonara' }
@@ -25,12 +36,9 @@ return require('packer').startup(function(use)
         'phaazon/hop.nvim',
         as = 'hop',
         config = function()
-            require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+            require('hop').setup { keys = 'etovxqpdygfblzhckisuran' }
         end
     }
-
-    -- doc on echo zone
-    use { 'Shougo/echodoc.vim' }
 
     -- syntax higtligh
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
@@ -45,9 +53,7 @@ return require('packer').startup(function(use)
     use {
         'Pocco81/AutoSave.nvim',
         config = function()
-            require('autosave').setup {
-                enable = true
-            }
+            require('autosave').setup { enable = true }
         end
     }
 
@@ -98,7 +104,7 @@ return require('packer').startup(function(use)
         end
     }
 
-    --
+    -- status line
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true },
@@ -149,6 +155,7 @@ return require('packer').startup(function(use)
         end
     }
 
+    -- git
     use {
         'TimUntersberger/neogit',
         requires = 'nvim-lua/plenary.nvim',
@@ -165,12 +172,13 @@ return require('packer').startup(function(use)
                 rainbow = {
                     enable = true,
                     extended_mode = true,
-                    max_file_lines = 1000, -- Do not enable for files with more than n lines, int
+                    max_file_lines = 100000, -- Do not enable for files with more than n lines, int
                 }
             }
         end
     }
 
+    -- auto close pairs
     use {
         'steelsojka/pears.nvim',
         config = function()
@@ -178,10 +186,13 @@ return require('packer').startup(function(use)
         end
     }
 
+    -- floating terminal
     use { 'numToStr/FTerm.nvim' }
 
+    -- discord rich presence
     use { 'andweeb/presence.nvim' }
 
+    -- spell
     use {
         'lewis6991/spellsitter.nvim',
         config = function()
@@ -190,5 +201,7 @@ return require('packer').startup(function(use)
             }
         end
     }
+
+    use { 'vim-scripts/DoxygenToolkit.vim' }
 
 end)
