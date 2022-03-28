@@ -22,6 +22,7 @@ mkdir -p $HOME/.config/nvim
 cp ./init.lua $HOME/.config/nvim
 cp -r ./lua/* $HOME/.config/nvim/
 cp ./.ycm_global_ycm_extra_conf.py $HOME/.config/nvim/
+cp ./compile_flags.txt $HOME/.config/nvim
 
 echo "
 -> now,
@@ -29,7 +30,5 @@ echo "
 - run the command ':PackerCompile',
 - run ':PackerInstall',
 - exit nvim,
-- go to the folder $HOME/.local/share/nvim/site/pack/packer/start/YouCompleteMe/
-- run: python3 install.py --clangd-completer
 -> GG you have the autocompletion
 "
