@@ -30,5 +30,6 @@ echo "
 - run the command ':PackerCompile',
 - run ':PackerInstall',
 - exit nvim,
+- open ~/.config/nvim/init.lua and uncomment line 30 to 37 (remove '--' at the start of line)
 -> GG you have the autocompletion
 "
