@@ -20,7 +20,7 @@ mkdir -p $HOME/.config/nvim
 
 # copy config
 cp ./init.lua $HOME/.config/nvim
-cp -r ./lua/* $HOME/.config/nvim/
+cp -r ./lua/ $HOME/.config/nvim/
 cp ./.ycm_global_ycm_extra_conf.py $HOME/.config/nvim/
 cp ./compile_flags.txt $HOME/.config/nvim
 
