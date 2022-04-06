@@ -1,3 +1,5 @@
+HOME = os.getenv('HOME')
+
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
 
@@ -8,6 +10,9 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.cindent = true
 vim.opt.expandtab = true
+
+vim.opt.undofile = true
+vim.opt.undodir = HOME .. "/.config/nvim/undo/"
 
 vim.opt.showmode = false
 

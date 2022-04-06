@@ -50,9 +50,7 @@ return require('packer').startup(function(use)
     -- show context
     use {
         'haringsrob/nvim_context_vt',
-        config = function()
-            require('nvim_context_vt').setup {}
-        end
+        config = function() require('nvim_context_vt').setup {} end
     }
 
     -- motion
@@ -65,12 +63,14 @@ return require('packer').startup(function(use)
     use {
         'm-demare/hlargs.nvim',
         requires = { 'nvim-treesitter/nvim-treesitter' },
-        config = function()
-            require('hlargs').setup()
-        end
+        config = function() require('hlargs').setup() end
     }
     -- hightlight for C
-    -- use { 'bfrg/vim-cpp-modern' }
+    use { 'bfrg/vim-cpp-modern' }
+    use {
+        'lukas-reineke/indent-blankline.nvim',
+        config = function() require('indent_blankline').setup() end
+    }
 
     -- multiple cursor
     -- uses:
@@ -82,9 +82,7 @@ return require('packer').startup(function(use)
     -- auto save
     use {
         'Pocco81/AutoSave.nvim',
-        config = function()
-            require('autosave').setup { enable = true }
-        end
+        config = function() require('autosave').setup { enable = true } end
     }
 
     -- move block / line
@@ -104,9 +102,7 @@ return require('packer').startup(function(use)
     -- x : cut a folder/file
     use {
         'kyazdani42/nvim-tree.lua',
-        requires = {
-            'kyazdani42/nvim-web-devicons',
-        },
+        requires = { 'kyazdani42/nvim-web-devicons' },
         config = function()
             require('nvim-tree').setup {
                 disable_netrw = true,
@@ -136,12 +132,8 @@ return require('packer').startup(function(use)
     -- signs
     use {
         'lewis6991/gitsigns.nvim',
-        requires = {
-            'nvim-lua/plenary.nvim'
-        },
-        config = function()
-            require('gitsigns').setup {}
-        end
+        requires = { 'nvim-lua/plenary.nvim' },
+        config = function() require('gitsigns').setup {} end
     }
 
     -- status line
@@ -201,9 +193,7 @@ return require('packer').startup(function(use)
     use {
         'TimUntersberger/neogit',
         requires = 'nvim-lua/plenary.nvim',
-        config = function()
-            require('neogit').setup {}
-        end
+        config = function() require('neogit').setup {} end
     }
 
     use {
@@ -222,9 +212,7 @@ return require('packer').startup(function(use)
     -- auto close pairs
     use {
         'steelsojka/pears.nvim',
-        config = function()
-            require('pears').setup()
-        end
+        config = function() require('pears').setup() end
     }
 
     -- floating terminal
@@ -236,14 +224,9 @@ return require('packer').startup(function(use)
     use { 'andweeb/presence.nvim' }
 
     -- spell
-    use {
-        'lewis6991/spellsitter.nvim',
-        config = function()
-            require('spellsitter').setup {
-                enable = true
-            }
-        end
-    }
+    -- uses:
+    -- :GramarousCheck
+    use { 'rhysd/vim-grammarous' }
 
     -- dowygen doc
     -- uses:
