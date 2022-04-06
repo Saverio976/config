@@ -6,7 +6,13 @@ return require('packer').startup(function(use)
     use { 'wbthomason/packer.nvim' }
 
     -- completer
-    -- use { 'tabnine/YouCompleteMe' }
+    -- uses:
+    -- Tab : go next auto completion
+    -- Arrow : change the auto completion select
+    -- Enter : accept auto completion selected
+    -- Ctrl+e : close auto completion popup
+    -- Ctrl+k : popup doc
+    -- gd : do to def
     use { 'neovim/nvim-lspconfig' }
     use { 'hrsh7th/cmp-nvim-lsp' }
     use { 'hrsh7th/cmp-buffer' }
@@ -18,41 +24,60 @@ return require('packer').startup(function(use)
     use { 'saadparwaiz1/cmp_luasnip' }
     use {
         'tzachar/cmp-tabnine',
-        run='./install.sh',
+        run = './install.sh',
         requires = 'hrsh7th/nvim-cmp'
     }
-
     use { 'onsails/lspkind-nvim' }
 
     -- exit tab
+    -- uses:
+    -- :Sayonara : quit and close buffer and
+    -- :Sayonara! : quit and close buffer + open next buffer
     use { 'mhinz/vim-sayonara' }
 
     -- cursor underline word
     use { 'yamatsum/nvim-cursorline' }
 
     -- epitech header
+    -- uses:
+    -- <F2> : epitech header
+    -- :EpiHeader : epitech header
     use { 'Heliferepo/VimTek' }
 
     -- show trailing space
     use { 'ntpeters/vim-better-whitespace' }
 
-    -- motion
+    -- show context
     use {
-        'phaazon/hop.nvim',
-        as = 'hop',
+        'haringsrob/nvim_context_vt',
         config = function()
-            require('hop').setup { keys = 'etovxqpdygfblzhckisuran' }
+            require('nvim_context_vt').setup {}
         end
     }
 
+    -- motion
+    -- uses:
+    -- just highlight char that you can reach with 'f' or 'F'
+    use { 'unblevable/quick-scope' }
+
     -- syntax higtligh
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+    use {
+        'm-demare/hlargs.nvim',
+        requires = { 'nvim-treesitter/nvim-treesitter' },
+        config = function()
+            require('hlargs').setup()
+        end
+    }
+    -- hightlight for C
+    -- use { 'bfrg/vim-cpp-modern' }
 
     -- multiple cursor
+    -- uses:
+    -- Ctrl+n : select word for new cursor
+    -- Ctrl+Up / Ctrl+Down : new cursor
     use { 'mg979/vim-visual-multi', branch = 'master' }
 
-    -- hightlight for C
-    use { 'bfrg/vim-cpp-modern' }
 
     -- auto save
     use {
@@ -63,12 +88,20 @@ return require('packer').startup(function(use)
     }
 
     -- move block / line
+    -- uses:
+    -- Ctrl+k : up the selected block
+    -- Ctrl+j : down the selected block
     use { 'matze/vim-move' }
 
     -- theme
     use { 'EdenEast/nightfox.nvim' }
 
     -- folder explorer
+    -- uses:
+    -- a : add a folder/file
+    -- c : copy a folder/file
+    -- p : paste a folder/file
+    -- x : cut a folder/file
     use {
         'kyazdani42/nvim-tree.lua',
         requires = {
@@ -92,7 +125,9 @@ return require('packer').startup(function(use)
         end
     }
 
-    -- go to file
+    -- fuzzy finder / go to file
+    -- uses:
+    -- :Telescope live_grep : (need install ripgrep)
     use {
         'nvim-telescope/telescope.nvim',
         requires = { {'nvim-lua/plenary.nvim'} }
@@ -161,6 +196,8 @@ return require('packer').startup(function(use)
     }
 
     -- git
+    -- uses:
+    -- :Neogit : prompt window with info / commit / push
     use {
         'TimUntersberger/neogit',
         requires = 'nvim-lua/plenary.nvim',
@@ -177,7 +214,6 @@ return require('packer').startup(function(use)
                 rainbow = {
                     enable = true,
                     extended_mode = true,
-                    max_file_lines = 100000, -- Do not enable for files with more than n lines, int
                 }
             }
         end
@@ -192,6 +228,8 @@ return require('packer').startup(function(use)
     }
 
     -- floating terminal
+    -- uses:
+    -- Alt+= : prompt floating terminal
     use { 'numToStr/FTerm.nvim' }
 
     -- discord rich presence
@@ -207,6 +245,9 @@ return require('packer').startup(function(use)
         end
     }
 
+    -- dowygen doc
+    -- uses:
+    -- :Dox
     use { 'vim-scripts/DoxygenToolkit.vim' }
 
 end)

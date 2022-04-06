@@ -11,25 +11,38 @@ if [[ $PWD != */nvim ]]; then
     exit 84
 fi
 
-# nvim plugin manager
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\
- ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+if [[ "$1" == "first" ]]; then
+    # nvim plugin manager
+    git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+     ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+    # nvim config folder
+    mkdir -p $HOME/.config
+    mkdir -p $HOME/.config/nvim
+    mkdir -p $HOME/.config/nvim/lua
+    # config file for the installation
+    echo "require('plugins')" > $HOME/.config/nvim/init.lua
+    cp ./lua/plugins.lua $HOME/.config/nvim/lua/plugins.lua
+    # how to
+    echo ">> now, open nvim and write"
+    echo ":PackerCompile"
+    echo ">> Press enter and write"
+    echo ":PackerInstall"
+    echo ">> if there are no errors, just re execute this script:"
+    echo "./install.sh second"
+    exit 0
+fi
 
-mkdir -p $HOME/.config
-mkdir -p $HOME/.config/nvim
+if [[ "$1" == "second" ]]; then
+    # copy the true config
+    cp ./init.lua $HOME/.config/nvim/init.lua
+    cp ./compile_flags.txt $HOME/.config/nvim/compile_flags.txt
+    cp -r ./lua/ $HOME/.config/nvim/
+    # how to
+    echo ">> now, you should be able to use this config"
+    exit 0
+fi
 
-# copy config
-cp ./init.lua $HOME/.config/nvim
-cp -r ./lua/ $HOME/.config/nvim/
-cp ./.ycm_global_ycm_extra_conf.py $HOME/.config/nvim/
-cp ./compile_flags.txt $HOME/.config/nvim
-
-echo "
--> now,
-- open nvim
-- run the command ':PackerCompile',
-- run ':PackerInstall',
-- exit nvim,
-- open ~/.config/nvim/init.lua and uncomment line 30 to 37 (remove '--' at the start of line)
--> GG you have the autocompletion
-"
+echo ">> why are you here ?"
+echo ">> i think you need to execute this script like this:"
+echo "./install.sh first"
+exit 84
