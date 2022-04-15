@@ -96,3 +96,8 @@ require('lspconfig').clangd.setup {
     capabilities = capabilities,
     cmd = { 'clangd', '--compile-commands-dir="' .. HOME .. '/.config/nvim/"' }
 }
+
+require('lspconfig').jedi_language_server.setup {
+    on_attach = on_attach,
+    capabilities = capabilities
+}

@@ -28,3 +28,5 @@ nmap('<Tab>', '<Esc>:bNext<CR>')
 
 nmap('<A-=>', '<CMD>lua require("FTerm").toggle()<CR>')
 tmap('<A-=>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
+
+nmap('<A-A>', '<CMD>lua vim.opt.background = "light"')

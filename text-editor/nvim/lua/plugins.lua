@@ -35,9 +35,6 @@ return require('packer').startup(function(use)
     -- :Sayonara! : quit and close buffer + open next buffer
     use { 'mhinz/vim-sayonara' }
 
-    -- cursor underline word
-    use { 'yamatsum/nvim-cursorline' }
-
     -- epitech header
     -- uses:
     -- <F2> : epitech header

@@ -130,7 +130,7 @@ bindsym $mod+8 workspace number $ws8
 bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
-assign [class="firefox" instance="Navigator"] → $web
+#assign [class="firefox" instance="Navigator"] → $web
 assign [class="discord" instance="discord"] → $network
 assign [class="Microsoft Teams - Preview" instance="microsoft teams - preview"] → $network
 assign [class="Slack" instance="slack"] → $network

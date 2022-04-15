@@ -31,10 +31,11 @@ vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.syntax = "true"
 vim.opt.termguicolors = true
 
-vim.opt.background = "dark"
+vim.opt.cursorline = true
+
+-- vim.opt.background = "dark"
 vim.cmd('colorscheme nightfox')
 
-require('ycm-comp')
 require('cpp-modern')
 vim.g.move_map_keys = 0
 require('lspconfig-custom')
