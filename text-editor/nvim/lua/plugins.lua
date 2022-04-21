@@ -13,7 +13,10 @@ return require('packer').startup(function(use)
     -- Ctrl+e : close auto completion popup
     -- Ctrl+k : popup doc
     -- gd : do to def
-    use { 'neovim/nvim-lspconfig' }
+    use {
+        'neovim/nvim-lspconfig',
+        'williamboman/nvim-lsp-installer'
+    }
     use { 'hrsh7th/cmp-nvim-lsp' }
     use { 'hrsh7th/cmp-buffer' }
     use { 'hrsh7th/cmp-path' }
@@ -68,13 +71,14 @@ return require('packer').startup(function(use)
         'lukas-reineke/indent-blankline.nvim',
         config = function() require('indent_blankline').setup() end
     }
+    -- highlight for v
+    use { 'ollykel/v-vim' }
 
     -- multiple cursor
     -- uses:
     -- Ctrl+n : select word for new cursor
     -- Ctrl+Up / Ctrl+Down : new cursor
     use { 'mg979/vim-visual-multi', branch = 'master' }
-
 
     -- auto save
     use {
@@ -134,6 +138,7 @@ return require('packer').startup(function(use)
     }
 
     -- status line
+    use { 'lambdalisue/battery.vim' }
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true },
@@ -154,7 +159,7 @@ return require('packer').startup(function(use)
                     lualine_c = {'filename'},
                     lualine_x = {'encoding', 'fileformat', 'filetype'},
                     lualine_y = {'progress'},
-                    lualine_z = {'location'}
+                    lualine_z = {'location', 'battery#component'}
                 },
                 inactive_sections = {
                     lualine_a = {},

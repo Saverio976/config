@@ -40,7 +40,6 @@ cmp.setup({
         })
     }
 })
-
 cmp.setup.filetype('gitcommit', {
     sources = cmp.config.sources({
         { name = 'cmp_git' },
@@ -48,13 +47,11 @@ cmp.setup.filetype('gitcommit', {
         { name = 'buffer' },
     })
 })
-
 cmp.setup.cmdline('/', {
     sources = {
         { name = 'buffer' }
     }
 })
-
 cmp.setup.cmdline(':', {
     sources = cmp.config.sources({
         { name = 'path' }
@@ -62,7 +59,6 @@ cmp.setup.cmdline(':', {
         { name = 'cmdline' }
     })
 })
-
 local tabnine = require('cmp_tabnine.config')
 tabnine:setup({
     max_lines = 1000,
@@ -91,13 +87,37 @@ end
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-require('lspconfig').clangd.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    cmd = { 'clangd', '--compile-commands-dir="' .. HOME .. '/.config/nvim/"' }
-}
+local lsp_installer = require("nvim-lsp-installer")
 
-require('lspconfig').jedi_language_server.setup {
-    on_attach = on_attach,
-    capabilities = capabilities
+-- Register a handler that will be called for each installed server when it's ready (i.e. when installation is finished
+-- or if the server is already installed).
+lsp_installer.on_server_ready(function(server)
+    local opts = {}
+
+    -- (optional) Customize the options passed to the server
+    -- if server.name == "tsserver" then
+    --     opts.root_dir = function() ... end
+    -- end
+
+    opts.on_attach = on_attach
+    opts.capabilities = capabilities
+    -- This setup() function will take the provided server configuration and decorate it with the necessary properties
+    -- before passing it onwards to lspconfig.
+    -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+    server:setup(opts)
+end)
+
+-- require('lspconfig').clangd.setup {
+--     on_attach = on_attach,
+--     capabilities = capabilities,
+--     cmd = { 'clangd', '--compile-commands-dir="' .. HOME .. '/.config/nvim/"' }
+-- }
+--
+-- require('lspconfig').jedi_language_server.setup {
+--     on_attach = on_attach,
+--     capabilities = capabilities
+-- }
+
+require('lspconfig').vls.setup {
+    cmd = {HOME .. "/.src/v_project/vls/bin/vls"}
 }
