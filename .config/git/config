@@ -1,8 +1,8 @@
 [user]
-	email =
-	signingkey =
+	email = xavier.mitault@epitech.eu
+	signingkey = Xavier Mitault (Errare humanum est) <xavier.mitault@epitech.eu>
 [core]
-	editor = vim
+	editor = nvim
 [init]
 	defaultBranch = main
 	templateDir = ~/.src/SAMPLE_C_PROJECT
