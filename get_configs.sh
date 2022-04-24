@@ -18,6 +18,7 @@ if [[ "$1" == "upload" ]]; then
     cp -r $XDG_CONFIG_HOME/alacritty/ ./.config/
     cp -r $XDG_CONFIG_HOME/i3/ ./.config/
     cp -r $XDG_CONFIG_HOME/git/ ./.config/
+    cp -r $XDG_CONFIG_HOME/kitty/ ./.config/
     cp $XDG_CONFIG_HOME/starship.toml ./.config/
 elif [[ "$1" == "install" ]]; then
     cp -r ./.config/* $XDG_CONFIG_HOME
