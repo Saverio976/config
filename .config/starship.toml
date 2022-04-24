@@ -1,0 +1,40 @@
+format = """
+╭─$username@$hostname $directory$git_branch$battery
+╰─ """
+
+[directory]
+truncation_length = 10
+truncate_to_repo = false
+format = "[$path](bold cyan)"
+
+[git_branch]
+symbol = ""
+truncation_length = 10
+truncation_symbol = ".."
+ignore_branches = []
+format = " [<$branch>](bold yellow)"
+
+[username]
+format = "[$user](bold red)"
+disabled = false
+show_always = true
+
+[hostname]
+ssh_only = false
+format = "[$hostname](bold red)"
+trim_at = ".companyname.com"
+disabled = false
+
+[battery]
+full_symbol = ""
+charging_symbol = ""
+discharging_symbol = ""
+format = " [$percentage]($style)"
+disabled = false
+[[battery.display]]
+threshold = 10
+style = "bold red"
+[[battery.display]]
+threshold = 100
+style = "bold green"
+

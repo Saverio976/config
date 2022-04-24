@@ -1,9 +1,10 @@
 #!/bin/bash
 
 # conf
-alias i3conf="vim $HOME/.config/i3/config"
-alias zshconf="vim $HOME/.zshrc"
-alias vimconf="vim $HOME/.vimrc"
+alias i3conf="nvim $HOME/.config/i3/config"
+alias zshconf="nvim $HOME/.zshrc"
+alias vimconf="nvim $HOME/.vimrc"
+alias starshipconf="nvim $HOME/.config/starship.toml"
 
 # im in the vim matrix
 alias :q="exit"
@@ -29,6 +30,11 @@ if command -v bat &> /dev/null
 then
     # some color
     alias cat="bat"
+fi
+
+if command -v starship &> /dev/null
+then
+    eval "$(starship init zsh)"
 fi
 
 # search directory name
