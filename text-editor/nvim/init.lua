@@ -33,8 +33,8 @@ vim.opt.termguicolors = true
 
 vim.opt.cursorline = true
 
--- vim.opt.background = "dark"
-vim.cmd('colorscheme nightfox')
+vim.opt.background = "dark"
+vim.cmd('colorscheme kanagawa')
 
 require('cpp-modern')
 vim.g.move_map_keys = 0
