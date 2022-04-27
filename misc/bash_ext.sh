@@ -12,9 +12,11 @@ alias :q="exit"
 alias searchd="s-d"
 alias searchf="s-f"
 alias scrcpy="scrcpy -S -w --power-off-on-close --disable-screensaver"
-alias audio-input-toggle="pactl set-source-mute @DEFAULT_SOURCE@ toggle"
 alias restartx="sudo systemctl restart lightdm.service"
 alias normatrix="$HOME/.src/NorMatrix/exec.sh"
+
+alias audio-input-toggle="pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+alias audio-output-toggle="pactl set-sink-mute @DEFAULT_SINK@ toggle"
 
 # prompt gpg password on tty
 GPG_TTY=$(tty)
