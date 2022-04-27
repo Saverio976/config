@@ -205,3 +205,21 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # exec teams on startup
 exec --no-startup-id teams --disable-seccomp-filter-sandbox
+
+default_border pixel 10
+hide_edge_borders smart
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #4c7899 #5050f0 #ffffff #2e9ef4   #000000
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+client.background       #ffffff
+
+focus_follows_mouse no
+
+workspace_auto_back_and_forth yes
+
+for_window [all] title_window_icon padding 1px
+title_align center
