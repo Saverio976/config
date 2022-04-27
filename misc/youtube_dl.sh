@@ -56,4 +56,4 @@ fi
 echo "download audio"
 youtube-dl --ignore-config --geo-bypass --yes-playlist --restrict-filenames \
 	--no-cache-dir --format 'bestaudio[ext=mp3]/bestaudio' $1 \
-	-o "$DIR_PATH/%(title)s.%(ext)s" $OGG_COMMAND
+	-o "$DIR_PATH/%(title)s.%(ext)s" $OGG_COMMAND --ignore-errors
