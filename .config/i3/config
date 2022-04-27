@@ -202,8 +202,6 @@ exec --no-startup-id nitrogen --restore
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # RebornOS Welcome Screen Autostart
 #exec --no-startup-id rebornos-welcome
-# Volume icon
-exec --no-startup-id volumeicon
 
 # exec teams on startup
 exec --no-startup-id teams --disable-seccomp-filter-sandbox
