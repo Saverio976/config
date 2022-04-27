@@ -14,7 +14,7 @@ truncation_symbol = ".."
 ignore_branches = []
 format = " [<$branch>](bold yellow)"
 [git_commit]
-symbol = ""
+tag_symbol = ""
 
 [username]
 format = "[$user](bold red)"
