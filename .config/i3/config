@@ -186,7 +186,11 @@ bindsym Control+Mod1+l exec "i3lock -c 000000"
 exec "xautolock -detectsleep -time 3 -locker \"i3lock -c 000000\""
 
 # Status bar
-exec_always i3status -c ~/.config/i3/i3status.conf | dzen2 -fg white -fn "-FiraCode Nerd Font Mono-r-normal--13-120-75-75-C-70-iso8859-1"
+bar {
+    position top
+    workspace_buttons yes
+}
+exec_always i3status -c ~/.config/i3/i3status.conf | dzen2 -fg white -x 200 -fn "-FiraCode Nerd Font Mono-r-normal--13-120-75-75-C-70-iso8859-1"
 
 exec --no-startup-id xinput set-prop "ELAN0504:01 04F3:3091 Touchpad" "libinput Tapping Enabled" 1
 
