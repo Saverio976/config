@@ -32,6 +32,14 @@ return require('packer').startup(function(use)
     }
     use { 'onsails/lspkind-nvim' }
 
+    -- show passible binding when you dont end a keybinding
+    use {
+        'folke/which-key.nvim',
+        config = function () require('which-key').setup({}) end
+    }
+    -- show function signature when you type
+    use { 'ray-x/lsp_signature.nvim' }
+
     -- exit tab
     -- uses:
     -- :Sayonara : quit and close buffer and
@@ -52,6 +60,8 @@ return require('packer').startup(function(use)
         'haringsrob/nvim_context_vt',
         config = function() require('nvim_context_vt').setup {} end
     }
+    -- highlight occurences of word under cursor
+    use { 'RRethy/vim-illuminate' }
 
     -- motion
     -- uses:
@@ -68,17 +78,38 @@ return require('packer').startup(function(use)
     -- hightlight for C
     use { 'bfrg/vim-cpp-modern' }
     use {
+        'folke/lsp-colors.nvim',
+        config = function() require('lsp-colors').setup({}) end
+    }
+    use {
         'lukas-reineke/indent-blankline.nvim',
         config = function() require('indent_blankline').setup() end
     }
     -- highlight for v
     use { 'ollykel/v-vim' }
+    -- info for regexp
+    use {
+        'bennypowers/nvim-regexplainer',
+        config = function() require('regexplainer').setup({auto = true}) end,
+        requires = {
+            'nvim-treesitter/nvim-treesitter',
+            'MunifTanjim/nui.nvim',
+        }
+    }
 
     -- multiple cursor
     -- uses:
     -- Ctrl+n : select word for new cursor
     -- Ctrl+Up / Ctrl+Down : new cursor
     use { 'mg979/vim-visual-multi', branch = 'master' }
+
+    -- comment lines
+    -- uses:
+    -- gc : add / remove comment mark line
+    use {
+        'numToStr/Comment.nvim',
+        config = function() require('Comment').setup() end
+    }
 
     -- auto save
     use {
@@ -92,6 +123,15 @@ return require('packer').startup(function(use)
     -- Ctrl+j : down the selected block
     use { 'matze/vim-move' }
 
+    -- transparent background
+    -- uses:
+    -- :TransparentEnable
+    -- :TransparentDisable
+    -- :TransparentToggle
+    use {
+        'xiyaowong/nvim-transparent',
+        config = function() require('transparent').setup({enable = true}) end
+    }
     -- theme
     use { 'EdenEast/nightfox.nvim' }
     use {
@@ -109,6 +149,11 @@ return require('packer').startup(function(use)
                 transparent = false,        -- do not set background color
             })
         end
+    }
+    -- better default ui settings
+    use {
+        'stevearc/dressing.nvim',
+        config = function () require('dressing').setup({}) end
     }
 
     -- folder explorer
@@ -137,6 +182,7 @@ return require('packer').startup(function(use)
             }
         end
     }
+    use { 'tversteeg/registers.nvim' }
 
     -- fuzzy finder / go to file
     -- uses:
@@ -214,6 +260,7 @@ return require('packer').startup(function(use)
         config = function() require('neogit').setup {} end
     }
 
+    -- use different color for { [ ( to better distinguish them
     use {
         'p00f/nvim-ts-rainbow',
         requires = 'nvim-treesitter/nvim-treesitter',
@@ -251,4 +298,6 @@ return require('packer').startup(function(use)
     -- :Dox
     use { 'vim-scripts/DoxygenToolkit.vim' }
 
+    -- play tetris
+    use { 'alec-gibson/nvim-tetris' }
 end)
