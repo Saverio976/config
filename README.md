@@ -16,6 +16,8 @@ cd text-editor/nvim/
 # ... (do what the script will said)
 ./install.sh second
 ```
+![neovim_file](/assets/open_one_file.png)
+![neovim_terminal](/assets/terminal_inside.png)
 
 - vim config (vim-plug installation in the shell script)
 ```sh
