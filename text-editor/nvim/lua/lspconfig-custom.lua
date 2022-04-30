@@ -25,7 +25,7 @@ cmp.setup({
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
-        { name = 'cmp_tabnine' },
+        -- { name = 'cmp_tabnine' },
         { name = 'path' }
     }, {
         { name = 'buffer' },
@@ -59,15 +59,15 @@ cmp.setup.cmdline(':', {
         { name = 'cmdline' }
     })
 })
-local tabnine = require('cmp_tabnine.config')
-tabnine:setup({
-    max_lines = 1000,
-    max_num_results = 10,
-    sort = true,
-    run_on_every_keystroke = true,
-    snippet_placeholder = '..',
-    ignored_file_types = {}
-})
+-- local tabnine = require('cmp_tabnine.config')
+-- tabnine:setup({
+--     max_lines = 1000,
+--     max_num_results = 10,
+--     sort = true,
+--     run_on_every_keystroke = true,
+--     snippet_placeholder = '..',
+--     ignored_file_types = {}
+-- })
 
 local on_attach = function(client, bufnr)
     -- Mappings.

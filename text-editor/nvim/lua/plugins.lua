@@ -25,11 +25,11 @@ return require('packer').startup(function(use)
     use { 'hrsh7th/nvim-cmp' }
     use { 'L3MON4D3/LuaSnip' }
     use { 'saadparwaiz1/cmp_luasnip' }
-    use {
-        'tzachar/cmp-tabnine',
-        run = './install.sh',
-        requires = 'hrsh7th/nvim-cmp'
-    }
+    -- use {
+    --     'tzachar/cmp-tabnine',
+    --     run = './install.sh',
+    --     requires = 'hrsh7th/nvim-cmp'
+    -- }
     use { 'onsails/lspkind-nvim' }
 
     -- show passible binding when you dont end a keybinding
@@ -58,7 +58,11 @@ return require('packer').startup(function(use)
     -- show context
     use {
         'haringsrob/nvim_context_vt',
-        config = function() require('nvim_context_vt').setup {} end
+        config = function()
+            require('nvim_context_vt').setup ({
+                disable_virtual_lines = true
+            })
+        end
     }
     -- highlight occurences of word under cursor
     use { 'RRethy/vim-illuminate' }
@@ -73,7 +77,7 @@ return require('packer').startup(function(use)
     use {
         'm-demare/hlargs.nvim',
         requires = { 'nvim-treesitter/nvim-treesitter' },
-        config = function() require('hlargs').setup() end
+        config = function() require('hlargs').setup({}) end
     }
     -- hightlight for C
     use { 'bfrg/vim-cpp-modern' }
@@ -83,7 +87,7 @@ return require('packer').startup(function(use)
     }
     use {
         'lukas-reineke/indent-blankline.nvim',
-        config = function() require('indent_blankline').setup() end
+        config = function() require('indent_blankline').setup({}) end
     }
     -- highlight for v
     use { 'ollykel/v-vim' }
@@ -91,10 +95,7 @@ return require('packer').startup(function(use)
     use {
         'bennypowers/nvim-regexplainer',
         config = function() require('regexplainer').setup({auto = true}) end,
-        requires = {
-            'nvim-treesitter/nvim-treesitter',
-            'MunifTanjim/nui.nvim',
-        }
+        requires = { 'nvim-treesitter/nvim-treesitter', 'MunifTanjim/nui.nvim' }
     }
 
     -- multiple cursor
@@ -108,13 +109,13 @@ return require('packer').startup(function(use)
     -- gc : add / remove comment mark line
     use {
         'numToStr/Comment.nvim',
-        config = function() require('Comment').setup() end
+        config = function() require('Comment').setup({}) end
     }
 
     -- auto save
     use {
         'Pocco81/AutoSave.nvim',
-        config = function() require('autosave').setup { enable = true } end
+        config = function() require('autosave').setup({ enable = true }) end
     }
 
     -- move block / line
@@ -133,17 +134,20 @@ return require('packer').startup(function(use)
         config = function() require('transparent').setup({enable = true}) end
     }
     -- theme
+    -- :colorscheme duskfox
+    -- :colorscheme dayfox
     use { 'EdenEast/nightfox.nvim' }
+    -- :colorscheme kanagawa
     use {
         'rebelot/kanagawa.nvim',
         config = function()
             require('kanagawa').setup({
                 undercurl = true,           -- enable undercurls
                 commentStyle = "italic",
-                functionStyle = "NONE",
+                functionStyle = "italic",
                 keywordStyle = "italic",
                 statementStyle = "bold",
-                typeStyle = "NONE",
+                typeStyle = "bold",
                 variablebuiltinStyle = "italic",
                 specialReturn = true,       -- special highlight for the return keyword
                 transparent = false,        -- do not set background color
@@ -162,11 +166,12 @@ return require('packer').startup(function(use)
     -- c : copy a folder/file
     -- p : paste a folder/file
     -- x : cut a folder/file
+    -- r : rename
     use {
         'kyazdani42/nvim-tree.lua',
         requires = { 'kyazdani42/nvim-web-devicons' },
         config = function()
-            require('nvim-tree').setup {
+            require('nvim-tree').setup({
                 disable_netrw = true,
                 open_on_setup = true,
                 view = {
@@ -174,14 +179,13 @@ return require('packer').startup(function(use)
                     height = "100%",
                     preserve_window_proportions = true,
                 },
-                actions = {
-                    open_file = {
-                        resize_window = true
-                    }
-                }
-            }
+                actions = { open_file = { resize_window = true } }
+            })
         end
     }
+    -- see yank and rgisters
+    -- uses:
+    -- " : see registers
     use { 'tversteeg/registers.nvim' }
 
     -- fuzzy finder / go to file
@@ -196,7 +200,7 @@ return require('packer').startup(function(use)
     use {
         'lewis6991/gitsigns.nvim',
         requires = { 'nvim-lua/plenary.nvim' },
-        config = function() require('gitsigns').setup {} end
+        config = function() require('gitsigns').setup({}) end
     }
 
     -- status line
@@ -205,7 +209,7 @@ return require('packer').startup(function(use)
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true },
         config = function()
-            require('lualine').setup {
+            require('lualine').setup({
                 options = {
                     icons_enabled = true,
                     theme = 'auto',
@@ -233,7 +237,7 @@ return require('packer').startup(function(use)
                 },
                 tabline = {},
                 extensions = {}
-            }
+            })
         end
     }
 
@@ -242,12 +246,12 @@ return require('packer').startup(function(use)
         'akinsho/bufferline.nvim',
         requires = 'kyazdani42/nvim-web-devicons',
         config = function()
-            require('bufferline').setup {
+            require('bufferline').setup({
                 options = {
                     mode = "buffers",
                     show_buffer_close_icons = false
                 }
-            }
+            })
         end
     }
 
@@ -257,7 +261,7 @@ return require('packer').startup(function(use)
     use {
         'TimUntersberger/neogit',
         requires = 'nvim-lua/plenary.nvim',
-        config = function() require('neogit').setup {} end
+        config = function() require('neogit').setup({}) end
     }
 
     -- use different color for { [ ( to better distinguish them
@@ -265,12 +269,12 @@ return require('packer').startup(function(use)
         'p00f/nvim-ts-rainbow',
         requires = 'nvim-treesitter/nvim-treesitter',
         config = function()
-            require('nvim-treesitter.configs').setup {
+            require('nvim-treesitter.configs').setup({
                 rainbow = {
                     enable = true,
                     extended_mode = true,
                 }
-            }
+            })
         end
     }
 
