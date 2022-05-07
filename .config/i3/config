@@ -51,7 +51,7 @@ bindsym $mod+Return exec kitty
 # kill focused window
 bindsym $mod+Shift+q kill
 
-bindsym $mod+d exec --no-startup-id rofi -show drun -run-shell-command '{terminal} -e zsh -ic "{cmd} && read"'
+bindsym $mod+d exec --no-startup-id rofi -show combi -run-shell-command '{terminal} -e zsh -ic "{cmd} && read"'
 
 # change focus
 bindsym $mod+j focus left
