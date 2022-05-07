@@ -1,0 +1,41 @@
+configuration {
+    modi: "window,run,ssh,combi";
+	location: 0;
+	show-icons: true;
+	terminal: "kitty";
+/*	ssh-client: "ssh";*/
+/*	ssh-command: "{terminal} -e {ssh-client} {host} [-p {port}]";*/
+/*	run-command: "{cmd}";*/
+/*	run-list-command: "";*/
+/*	run-shell-command: "{terminal} -e {cmd}";*/
+/*	window-command: "wmctrl -i -R {window}";*/
+/*	window-match-fields: "all";*/
+/*	icon-theme: ;*/
+	drun-match-fields: "name,generic,exec,categories,keywords";
+	drun-show-actions: false;
+	drun-url-launcher: "xdg-open";
+	cycle: true;
+	sidebar-mode: true;
+	combi-modi: "window,drun,run";
+	combi-display-format: "{mode} {text}";
+	window-thumbnail: false;
+	display-window: "w:";
+	display-run: "r:";
+	display-ssh: "ssh:";
+	display-drun: "dr";
+	display-combi: "combi";
+	display-keys: "keys:";
+	display-filebrowser: "file:";
+	kb-clear-line: "Control+w";
+	kb-screenshot: "Alt+S";
+	kb-cancel: "Escape,Control+g,Control+bracketleft";
+  timeout {
+      action: "kb-cancel";
+      delay:  0;
+  }
+  filebrowser {
+      directories-first: true;
+      sorting-method:    "name";
+  }
+}
+@theme "/usr/share/rofi/themes/DarkBlue.rasi"
