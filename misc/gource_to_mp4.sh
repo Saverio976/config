@@ -3,11 +3,6 @@ then
     echo "need gource for this script"
     exit 84
 fi
-if ! command -v avconv &> /dev/null
-then
-    echo "need avconv for this script"
-    exit 84
-fi
 if ! command -v ffmpeg &> /dev/null
 then
     echo "need ffmpeg for this script"
@@ -27,7 +22,16 @@ then
     exit 84
 fi
 
-gource --hide dirnames,filenames --seconds-per-day 0.1 \
---auto-skip-seconds 1 -1280x720 --title "$1" -o - --stop-at-end \
-| ffmpeg -y -r 60 -f image2pipe -vcodec ppm -i - -vcodec libx264 \
--preset ultrafast -pix_fmt yuv420p -crf 1 -threads 0 -bf 0 $1.mp4
+gource --hide dirnames,filenames \
+    --seconds-per-day 0.1 \
+    --auto-skip-seconds 1 -1280x720 \
+    --title "$1" -o - \
+    --stop-at-end | ffmpeg -y -r 60 \
+    -f image2pipe \
+    -vcodec ppm -i - \
+    -vcodec libx264 \
+    -preset ultrafast \
+    -pix_fmt yuv420p \
+    -crf 1 \
+    -threads 0 \
+    -bf 0 $1.mp4
