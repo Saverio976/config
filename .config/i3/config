@@ -13,7 +13,7 @@ set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:fira-code 12
+font pango:FiraCode Nerd Font Mono 12
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -187,10 +187,13 @@ exec "xautolock -detectsleep -time 3 -locker \"i3lock -c 000000\""
 
 # Status bar
 bar {
+    # mode hide
     position top
     workspace_buttons yes
+    status_command i3status -c ~/.config/i3/i3status.conf
+    i3bar_command i3bar --transparency
+    font pango:FiraCode Nerd Font Mono 12
 }
-exec_always i3status -c ~/.config/i3/i3status.conf | dzen2 -fg white -x 200 -fn "-FiraCode Nerd Font Mono-r-normal--13-120-75-75-C-70-iso8859-1"
 
 exec --no-startup-id xinput set-prop "ELAN0504:01 04F3:3091 Touchpad" "libinput Tapping Enabled" 1
 
