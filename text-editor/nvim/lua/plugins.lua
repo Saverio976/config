@@ -154,6 +154,13 @@ return require('packer').startup(function(use)
             })
         end
     }
+    -- zoom a buffer
+    -- uses:
+    -- :NeoZoomToggle
+    use {
+        'nyngwang/NeoZoom.lua',
+        config = function() require('neo-zoom').setup({}) end
+    }
     -- better default ui settings
     use {
         'stevearc/dressing.nvim',
@@ -242,15 +249,30 @@ return require('packer').startup(function(use)
     }
 
     -- show buffer
+    -- uses:
+    -- :JABSOpen
+    -- Meta-z
     use {
-        'akinsho/bufferline.nvim',
-        requires = 'kyazdani42/nvim-web-devicons',
-        config = function()
-            require('bufferline').setup({
-                options = {
-                    mode = "buffers",
-                    show_buffer_close_icons = false
-                }
+        'matbme/JABS.nvim',
+        config = function ()
+            local ui = vim.api.nvim_list_uis()[1]
+            require('jabs').setup({
+                position = 'corner', -- center, corner
+                width = 50,
+                height = 10,
+                border = 'solid', -- none, single, double, rounded, solid, shadow, (or an array or chars)
+
+                -- Options for preview window
+                preview_position = 'left', -- top, bottom, left, right
+                preview = {
+                    width = 40,
+                    height = 30,
+                    border = 'double', -- none, single, double, rounded, solid, shadow, (or an array or chars)
+                },
+
+                -- the options below are ignored when position = 'center'
+                col = ui.width,  -- Window appears on the right
+                row = ui.height/2, -- Window appears in the vertical middle
             })
         end
     }
@@ -303,5 +325,7 @@ return require('packer').startup(function(use)
     use { 'vim-scripts/DoxygenToolkit.vim' }
 
     -- play tetris
+    -- uses:
+    -- :Testris
     use { 'alec-gibson/nvim-tetris' }
 end)

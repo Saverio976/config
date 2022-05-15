@@ -32,3 +32,8 @@ tmap('<A-=>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
 imap('<C-Tab>', '<CMD>lua require("luasnip").jump(1)<CR>')
 
 vim.g.registers_normal_mode = 0
+
+nmap('<M-Esc>', '<Esc>:NeoZoomToggle<CR>')
+
+nmap('<M-z>', ':JABSOpen<CR>')
+imap('<M-z>', '<Esc>:JABSOpen<CR>')
