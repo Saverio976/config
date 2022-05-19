@@ -201,10 +201,8 @@ exec --no-startup-id xinput set-prop "ELAN0504:01 04F3:3091 Touchpad" "libinput 
 exec --no-startup-id xrandr --output Virtual1 --mode 1680x1050
 # Wallpaper select
 exec --no-startup-id nitrogen --restore
-# Authentication
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-# RebornOS Welcome Screen Autostart
-#exec --no-startup-id rebornos-welcome
+# Activate linux
+exec_always --no-startup-id ~/.config/i3/activate-linux
 
 # exec teams on startup
 #exec --no-startup-id teams --disable-seccomp-filter-sandbox
