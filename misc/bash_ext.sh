@@ -24,6 +24,7 @@ function replace_command() {
 replace_command "ls" "exa -la"
 replace_command "cat" "bat"
 replace_command "htop" "btm"
+replace_command "kill" "fkill"
 
 # replace cd command
 if command -v zoxide &> /dev/null
