@@ -1,6 +1,6 @@
 format = """
 ╭─$username@$hostname $directory$git_branch$git_commit$git_status$battery . $cmd_duration
-╰─ """
+╰─ $character """
 
 [directory]
 truncation_length = 10
@@ -45,3 +45,6 @@ style = "bold green"
 [cmd_duration]
 min_time = 0
 
+[character]
+success_symbol = " [λ](green)"
+error_symbol = " [λ](bold red)"
