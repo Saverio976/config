@@ -22,21 +22,26 @@ alias audio-output-toggle="pactl set-sink-mute @DEFAULT_SINK@ toggle"
 GPG_TTY=$(tty)
 export GPG_TTY
 
-if command -v exa &> /dev/null
-then
-    # some color
-    alias ls="exa -la"
-fi
+function replace_command() {
+    command_replace=$(echo $2 | awk '{print $1;}')
+    if command -v $command_replace &> /dev/null
+    then
+        alias $1="$2"
+    fi
+}
 
-if command -v bat &> /dev/null
-then
-    # some color
-    alias cat="bat"
-fi
+replace_command "ls" "exa -la"
+replace_command "cat" "bat"
+replace_command "htop" "btm"
 
 if command -v starship &> /dev/null
 then
     eval "$(starship init zsh)"
+fi
+
+if command -v zoxide &> /dev/null
+then
+    eval "$(zoxide init zsh --cmd cd)"
 fi
 
 # search directory name
