@@ -286,6 +286,14 @@ return require('packer').startup(function(use)
         config = function() require('neogit').setup({}) end
     }
 
+    -- cheat.sh
+    -- uses:
+    -- :Cheat : a prompt will ask for what you search
+    use {
+        'RishabhRD/popfix',
+        'RishabhRD/nvim-cheat.sh'
+    }
+
     -- use different color for { [ ( to better distinguish them
     use {
         'p00f/nvim-ts-rainbow',
