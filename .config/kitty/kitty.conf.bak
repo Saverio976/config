@@ -13,6 +13,6 @@ include ./themes.conf
 
 
 # BEGIN_KITTY_THEME
-# Default
+# Github
 include current-theme.conf
 # END_KITTY_THEME
