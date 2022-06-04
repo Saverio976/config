@@ -62,10 +62,10 @@ alias_if_exists "starshipconf" "nvim $HOME/.config/starship.toml"
 
 ##############################################################################
 # PROMPT
-if command -v starship &> /dev/null
-then
-    eval "$(starship init zsh)"
-fi
+# if command -v starship &> /dev/null
+# then
+#     eval "$(starship init zsh)"
+# fi
 
 ##############################################################################
 # CUSTOM FUNCTION
