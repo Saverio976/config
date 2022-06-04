@@ -399,4 +399,21 @@ return require('packer').startup(function(use)
 
     use { 'LunarWatcher/auto-pairs' }
 
+    use {
+        'norcalli/nvim-colorizer.lua',
+        config = function ()
+            require'colorizer'.setup()
+        end
+    }
+
+    use {
+        's1n7ax/nvim-comment-frame',
+        requires = {
+            { 'nvim-treesitter' }
+        },
+        config = function()
+            require('nvim-comment-frame').setup()
+        end
+    }
+
 end)
