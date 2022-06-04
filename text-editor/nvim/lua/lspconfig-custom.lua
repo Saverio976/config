@@ -121,5 +121,7 @@ end)
 -- }
 
 require('lspconfig').vls.setup {
-    cmd = {HOME .. "/.src/v_project/vls/bin/vls"}
+    on_attach = on_attach,
+    capabilities = capabilities,
+    cmd = {HOME .. "/tmp/vls/bin/vls"}
 }

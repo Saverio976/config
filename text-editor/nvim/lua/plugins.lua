@@ -2,6 +2,10 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
+    use {
+        'lewis6991/impatient.nvim',
+        config = function () require('impatient') end
+    }
     -- Packer can manage itself
     use { 'wbthomason/packer.nvim' }
 
@@ -308,12 +312,6 @@ return require('packer').startup(function(use)
         end
     }
 
-    -- auto close pairs
-    use {
-        'steelsojka/pears.nvim',
-        config = function() require('pears').setup() end
-    }
-
     -- floating terminal
     -- uses:
     -- Alt+= : prompt floating terminal
@@ -352,4 +350,53 @@ return require('packer').startup(function(use)
             })
         end
     }
+
+    use { 'gpanders/editorconfig.nvim' }
+
+    use {
+        'pwntester/octo.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim',
+            'nvim-telescope/telescope.nvim',
+            'kyazdani42/nvim-web-devicons',
+        },
+        config = function ()
+            require("octo").setup()
+        end
+    }
+
+    use {
+        'rcarriga/nvim-notify',
+        config = function ()
+            vim.notify = require("notify")
+        end
+    }
+
+    use {
+        'cappyzawa/trim.nvim',
+        config = function ()
+            require('trim').setup({
+                -- if you want to ignore markdown file.
+                -- you can specify filetypes.
+                disable = {"markdown"},
+
+                -- if you want to ignore space of top
+                patterns = {
+                    [[%s/\s\+$//e]],
+                    [[%s/\($\n\s*\)\+\%$//]],
+                    [[%s/\(\n\n\)\n\+/\1/]],
+                },
+            })
+        end
+    }
+
+    use {
+        'lukas-reineke/virt-column.nvim',
+        config = function ()
+            require("virt-column").setup()
+        end
+    }
+
+    use { 'LunarWatcher/auto-pairs' }
+
 end)
