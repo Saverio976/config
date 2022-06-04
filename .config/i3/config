@@ -22,10 +22,6 @@ font pango:FiraCode Nerd Font Mono 12
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
 
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
 # picom (transparency)
 exec_always picom
 
@@ -183,8 +179,8 @@ bindsym $mod+r mode "resize"
 #lock
 bindsym Control+Mod1+l exec "i3lock -c 000000 --show-failed-attempts --ignore-empty-password -i /home/saverio/source/config/misc/eagle_wallpaper.png && systemctl suspend"
 # auto lock the screen
-exec "xautolock -detectsleep -time 3 -locker \"i3lock -c 000000\""
-exec "xautolock -time 7 -locker \"systemctl suspend\""
+exec "xautolock -detectsleep -time 3 -locker \"i3lock -c 000000 --show-failed-attempts --ignore-empty-password -i /home/saverio/source/config/misc/eagle_wallpaper.png\""
+exec "xautolock -time 20 -locker \"systemctl suspend\""
 
 # Status bar
 bar {
