@@ -19,10 +19,15 @@ if [[ "$1" == "upload" ]]; then
     cp -r $XDG_CONFIG_HOME/i3/ ./.config/
     cp -r $XDG_CONFIG_HOME/git/ ./.config/
     cp -r $XDG_CONFIG_HOME/kitty/ ./.config/
-    cp $XDG_CONFIG_HOME/starship.toml ./.config/
     cp -r $XDG_CONFIG_HOME/rofi ./.config/
+    cp $HOME/.p10k.zsh ./.config
+    cp $HOME/.zshrc ./.config
 elif [[ "$1" == "install" ]]; then
     cp -r ./.config/* $XDG_CONFIG_HOME
+    rm -f $XDG_CONFIG_HOME/.p10k.zsh
+    rm -f $XDG_CONFIG_HOME/.zshrc
+    cp ./.config/.p10k.zsh $HOME
+    cp ./.config/.zshrc $HOME
     echo "next command : sudo cp /usr/bin/pinentry-curses /usr/bin/pinentry"
     sudo cp /usr/bin/pinentry-curses /usr/bin/pinentry
     echo "for neovim, see readme"

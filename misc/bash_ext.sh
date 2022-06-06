@@ -31,6 +31,10 @@ if command -v zoxide &> /dev/null
 then
     eval "$(zoxide init zsh --cmd cd)"
 fi
+if command -v direnv &> /dev/null
+then
+    eval "$(direnv hook zsh)"
+fi
 
 ##############################################################################
 # ALIAS
