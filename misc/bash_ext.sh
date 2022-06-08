@@ -8,8 +8,7 @@ alias searchf="s-f"
 alias restartx="sudo systemctl restart lightdm.service"
 
 # prompt gpg password on tty
-GPG_TTY=$(tty)
-export GPG_TTY
+export GPG_TTY=GPG_TTY=$(tty)
 
 ##############################################################################
 # REPLACE COMMAND
