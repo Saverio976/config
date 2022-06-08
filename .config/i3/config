@@ -215,6 +215,8 @@ client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
 
+exec --no-startup-id feh --bg-scale /home/saverio/source/config/misc/eagle_wallpaper.png
+
 focus_follows_mouse no
 
 workspace_auto_back_and_forth yes
