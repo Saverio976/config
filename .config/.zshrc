@@ -81,7 +81,10 @@ plugins=(
     git
     zsh-autosuggestions
     zsh-syntax-highlighting
+    zsh-history-substring-search
 )
+
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 
 source $ZSH/oh-my-zsh.sh
 
@@ -105,9 +108,11 @@ source $HOME/source/config/misc/bash_ext.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export GPG_TTY=GPG_TTY=$(tty)
-if ! command -v nvim 2>/dev/null ; do
+if ! command -v nvim &>/dev/null
+then
     export EDITOR=nvim
-else if ! command -v vim 2>/dev/null; do
+elif ! command -v vim &>/dev/null
+then
     export EDITOR=vim
 else
     export EDITOR=nano
