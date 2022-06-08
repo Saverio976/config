@@ -54,3 +54,5 @@ xautolock
 pinentry
 # terminal
 kitty
+# background
+feh
