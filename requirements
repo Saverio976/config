@@ -1,0 +1,56 @@
+# cd replacement
+zoxide
+# kill replacement
+fkill
+# htop replacement
+btm
+# dmenu (i3) replacement
+rofi-dmenu
+rofi
+# man pages
+man-db
+# ls replacement
+exa
+# cat replacement
+bat
+# transparency
+picom
+# touchpad configs
+xorg-xinput
+# youtube video downloader
+youtube-dl
+# handle audio input/output
+pulsmixer
+# bluetooth
+bluez
+bluez-utils
+pulseaudio
+pulseaudio-bluetooth
+# listen music / watch video
+mpv
+# blue light shield
+redshift
+# upgrade all in one command
+topgrade
+# screenshot utility
+gnome-screenshot
+# fonts
+nerd-fonts-fira-code
+# shell
+zsh
+# network
+network-manager-applet
+networkmanager
+dhcpcd
+curl
+# browser
+firefox
+# file version control
+git
+# lock screen
+i3lock
+xautolock
+# ask for password
+pinentry
+# terminal
+kitty
