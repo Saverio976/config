@@ -6,10 +6,10 @@ fi
 
 if [[ "$1" == "upload" ]]; then
     # nvim
-    mv ./text-editor/nvim/install.sh ./install.sh
+    mv ./text-editor/nvim/install.sh ./text-editor/install.sh
     rm -rf ./text-editor/nvim/
     cp -r $XDG_CONFIG_HOME/nvim ./text-editor/
-    mv ./install.sh ./text-editor/nvim/install.sh
+    mv ./text-editor/install.sh ./text-editor/nvim/install.sh
     rm -rf ./text-editor/nvim/undo
     rm -rf ./text-editor/nvim/plugin
 
