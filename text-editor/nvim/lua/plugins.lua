@@ -368,9 +368,7 @@ return require('packer').startup(function(use)
     use {
         'rcarriga/nvim-notify',
         config = function ()
-            require("notify").setup({
-                background_colour = "#000000"
-            })
+            require("notify").setup({ background_colour = "#000000" })
             vim.notify = require("notify")
         end
     }
@@ -451,7 +449,5 @@ return require('packer').startup(function(use)
     }
 
     use { 'hrsh7th/vim-searchx' }
-
-    use { 'adelarsq/vim-emoji-icon-theme' }
 
 end)
