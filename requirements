@@ -3,7 +3,7 @@ zoxide
 # kill replacement
 fkill
 # htop replacement
-btm
+bottom
 # dmenu (i3) replacement
 rofi-dmenu
 rofi
