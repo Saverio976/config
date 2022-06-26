@@ -147,12 +147,12 @@ return require('packer').startup(function(use)
         config = function()
             require('kanagawa').setup({
                 undercurl = true,           -- enable undercurls
-                commentStyle = "italic",
-                functionStyle = "italic",
-                keywordStyle = "italic",
-                statementStyle = "bold",
-                typeStyle = "bold",
-                variablebuiltinStyle = "italic",
+                commentStyle = { italic = true },
+                functionStyle = { italic = true, bold = true },
+                keywordStyle = { italic = true },
+                statementStyle = { bold = true },
+                typeStyle = { bold = true },
+                variablebuiltinStyle = { italic = true },
                 specialReturn = true,       -- special highlight for the return keyword
                 transparent = false,        -- do not set background color
             })
