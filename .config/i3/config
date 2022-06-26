@@ -216,7 +216,7 @@ client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 client.background       #ffffff
 
-exec --no-startup-id feh --bg-scale /home/saverio/source/config/misc/eagle_wallpaper.png
+exec --no-startup-id feh --bg-scale $HOME/Pictures/wallpaper.png
 
 focus_follows_mouse no
 
@@ -224,3 +224,14 @@ workspace_auto_back_and_forth yes
 
 for_window [all] title_window_icon padding 2px
 title_align center
+
+# thanks to https://gist.github.com/dianjuar/ee774561a8bc02b077989bc17424a19f
+# Screenshots
+bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date).png"
+bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date).png"
+bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(date).png"
+
+## Clipboard Screenshots
+bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
+bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
