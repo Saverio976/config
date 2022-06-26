@@ -102,18 +102,17 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='mvim'
 # fi
 
-source $HOME/source/config/misc/bash_ext.sh
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export GPG_TTY=GPG_TTY=$(tty)
-if ! command -v nvim &>/dev/null
+if command -v nvim &>/dev/null
 then
     export EDITOR=nvim
-elif ! command -v vim &>/dev/null
+elif command -v vim &>/dev/null
 then
     export EDITOR=vim
 else
     export EDITOR=nano
 fi
+source $HOME/src/config/misc/bash_ext.sh
