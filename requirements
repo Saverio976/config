@@ -56,3 +56,5 @@ pinentry
 kitty
 # background
 feh
+# status bar
+polybar
