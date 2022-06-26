@@ -17,7 +17,7 @@ local backup_dir = vim.fn.expand('~/.cache/nvim')
 
 -- define configs
 local configs = {
-	guifont = 'DroidSansMono Nerd Font 11',
+	guifont = 'FiraCode Nerd Font Mono 12',
 	termguicolors = true, -- Enable GUI colors for the terminal to get truecolor
 	list = true, -- show whitespace
 	listchars = {
@@ -38,7 +38,7 @@ local configs = {
 
 	-- backup related options
 	backup = true, -- make backups before writing
-	undofile = false, -- persistent undos - undo after you re-open the file
+	undofile = true, -- persistent undos - undo after you re-open the file
 	writebackup = true, -- Make backup before overwriting the current buffer
 	backupcopy = 'yes', -- Overwrite the original backup file
 	directory = backup_dir .. '/swap', -- directory to place swap files in
@@ -53,7 +53,7 @@ local configs = {
 
 	cursorline = true, -- highlight current line
 	number = true, -- show line numbers
-	relativenumber = false, -- show relative line number
+	relativenumber = true, -- show relative line number
 
 	incsearch = true, -- incremental search
 	hlsearch = true, -- highlighted search results
@@ -88,6 +88,9 @@ local configs = {
 
 	wildignore = vim.opt.wildignore + '*.o,*.rej,*.so', -- patterns to ignore during file-navigation
 	completeopt = 'menuone,noselect,noinsert', -- completion options
+
+	ruler = true,
+	colorcolumn = "80"
 }
 
 -- apply colorscheme without throwing any errors
