@@ -9,6 +9,8 @@ alias restartx="sudo systemctl restart lightdm.service"
 
 # prompt gpg password on tty
 export GPG_TTY=GPG_TTY=$(tty)
+# xdg config
+export XDG_CONFIG_HOME="$HOME/.config"
 
 ##############################################################################
 # REPLACE COMMAND
