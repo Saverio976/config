@@ -20,6 +20,7 @@ if [[ "$1" == "upload" ]]; then
     cp -r $XDG_CONFIG_HOME/git/ ./.config/
     cp -r $XDG_CONFIG_HOME/kitty/ ./.config/
     cp -r $XDG_CONFIG_HOME/rofi ./.config/
+    cp -r $XDG_CONFIG_HOME/polybar ./.config/
     cp $HOME/.p10k.zsh ./.config
     cp $HOME/.zshrc ./.config
 elif [[ "$1" == "install" ]]; then
