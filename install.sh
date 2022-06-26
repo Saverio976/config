@@ -24,10 +24,15 @@ cd /tmp
 git clone https://github.com/Saverio976/config.git config
 cd config
 
-./get_configs.sh
+echo ""
+echo "please provide sudo permissions (ctrl+c and see installation script if you dont trust)"
+echo ""
+sudo echo "thanks"
 
-for LINE in $(/bin/cat | grep -v -e '^#'); do
-    sudo $COMMAND_INSTALL $LINE
+./get_configs.sh install
+
+for LINE in $(/bin/cat ./requirements | grep -v -e '^#'); do
+    yes | sudo $COMMAND_INSTALL $LINE
 done
 
 sudo systemctl enable --now NetworkManager
