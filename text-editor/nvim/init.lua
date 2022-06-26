@@ -1,45 +1,52 @@
-HOME = os.getenv('HOME')
 
-vim.opt.encoding = "utf-8"
-vim.opt.fileencoding = "utf-8"
+--    █████████   █████              █████                                  █████
+--   ███░░░░░███ ░░███              ░░███                                  ░░███
+--  ░███    ░███  ░███████   █████  ███████   ████████   ██████    ██████  ███████
+--  ░███████████  ░███░░███ ███░░  ░░░███░   ░░███░░███ ░░░░░███  ███░░███░░░███░
+--  ░███░░░░░███  ░███ ░███░░█████   ░███     ░███ ░░░   ███████ ░███ ░░░   ░███
+--  ░███    ░███  ░███ ░███ ░░░░███  ░███ ███ ░███      ███░░███ ░███  ███  ░███ ███
+--  █████   █████ ████████  ██████   ░░█████  █████    ░░████████░░██████   ░░█████
+-- ░░░░░   ░░░░░ ░░░░░░░░  ░░░░░░     ░░░░░  ░░░░░      ░░░░░░░░  ░░░░░░     ░░░░░
 
-vim.opt.lazyredraw = true
-vim.opt.ttyfast = true
+--                          Author:     Ali Shahid
+--                          Github:     github.com/shaeinst
 
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.cindent = true
-vim.opt.expandtab = true
 
-vim.opt.undofile = true
-vim.opt.undodir = HOME .. "/.config/nvim/undo/"
 
-vim.opt.showmode = false
+-- ───────────────────────────────────────────────── --
+-- ────────────────❰ Leader Mapping ❱─────────────── --
+-- mapping leader here. it will work for every mapped
 
-vim.opt.ruler = true
-vim.opt.colorcolumn = "80"
+vim.g.mapleader = ';'
+vim.g.maplocalleader = '|'
+-- ───────────────────────────────────────────────── --
 
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.wrap = false
-vim.opt.cursorline = true
 
-vim.opt.wildignore = "*.docx,*.jpg,*.gif,*.pyc,*.o,*.a,*.odt"
 
-vim.opt.completeopt = "menu,menuone,noselect"
 
-vim.opt.syntax = "true"
-vim.opt.termguicolors = true
+-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
+-- ━━━━━━━━━━━━━❰ Load/Source Configs ❱━━━━━━━━━━━━━ --
 
-vim.opt.cursorline = true
+-- plugin config to improve start-up time.
+-- it should be always on top of init.lua file
+require('plugins/impatient_nvim') -- impatient needs to be setup before any other lua plugin is loaded so it is recommended you add the following near the start of your
+require('plugins/filetype_nvim')  -- Easily speed up your neovim startup time!
 
-vim.opt.background = "dark"
+require('configs')  -- plugin independent configs
+require('autocmd')  -- automatic commands
+require('mappings') -- plugin independent mappings
+require('customs/override_defalut') -- always put this config(override_defalut) at last because it's use to overide the any already defined config
+
+
+-- load/source PLUGINS CONFIGS
+-- loading plugins and its configs are managed in seperate config file, ~/.config/nvim/lua/plugins/packer_nvim.lua
+-- NOTE: laways load plugins at last
+require('packer_nvim')
+
+local kanagawa_imported_ok, _ = pcall(require, 'kanagawa')
+if not kanagawa_imported_ok then return end
 vim.cmd('colorscheme kanagawa')
 
-require('cpp-modern')
-vim.g.move_map_keys = 0
-require('lspconfig-custom')
+-- ━━━━━━━━━━━━━━━━━❰ end of Load ❱━━━━━━━━━━━━━━━━━ --
+-- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
 
-require('mappings-custom')
-
-require('plugins')
