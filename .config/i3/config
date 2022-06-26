@@ -183,14 +183,15 @@ exec "xautolock -detectsleep -time 3 -locker \"i3lock -c 000000 --show-failed-at
 exec "xautolock -time 20 -locker \"systemctl suspend\""
 
 # Status bar
-bar {
-    # mode hide
-    position top
-    workspace_buttons yes
-    status_command i3status -c ~/.config/i3/i3status.conf
-    i3bar_command i3bar --transparency
-    font pango:FiraCode Nerd Font Mono 12
-}
+# bar {
+#     # mode hide
+#     position top
+#     workspace_buttons yes
+#     status_command i3status -c ~/.config/i3/i3status.conf
+#     i3bar_command i3bar --transparency
+#     font pango:FiraCode Nerd Font Mono 12
+# }
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 exec --no-startup-id xinput set-prop "ELAN0504:01 04F3:3091 Touchpad" "libinput Tapping Enabled" 1
 
