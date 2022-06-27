@@ -193,11 +193,6 @@ return packer.startup {
 			config = [[ require('plugins/trouble_nvim') ]]
 		}
 
-		use {
-			'matbme/JABS.nvim',
-			config = [[ require('plugins/jabs_nvim') ]]
-		}
-
 		use { -- A File Explorer For Neovim Written In Lua
 			'kyazdani42/nvim-tree.lua',
 			config = [[ require('plugins/nvim-tree_lua') ]]
