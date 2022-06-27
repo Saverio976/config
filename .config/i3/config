@@ -177,9 +177,9 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 #lock
-bindsym Control+Mod1+l exec "i3lock -c 000000 --show-failed-attempts --ignore-empty-password -i /home/saverio/source/config/misc/eagle_wallpaper.png && systemctl suspend"
+bindsym Control+Mod1+l exec "i3lock -c 000000 --show-failed-attempts --ignore-empty-password -i /home/saverio/Pictures/wallpaper.png && systemctl suspend"
 # auto lock the screen
-exec "xautolock -detectsleep -time 3 -locker \"i3lock -c 000000 --show-failed-attempts --ignore-empty-password -i /home/saverio/source/config/misc/eagle_wallpaper.png\""
+exec "xautolock -detectsleep -time 3 -locker \"i3lock -c 000000 --show-failed-attempts --ignore-empty-password -i /home/saverio/Pictures/wallpaper.png\""
 exec "xautolock -time 20 -locker \"systemctl suspend\""
 
 # Status bar
@@ -198,7 +198,7 @@ exec --no-startup-id xinput set-prop "ELAN0504:01 04F3:3091 Touchpad" "libinput 
 # Resolution
 exec --no-startup-id xrandr --output Virtual1 --mode 1680x1050
 # Wallpaper select
-exec nitrogen --set-auto /home/saverio/source/config/misc/eagle_wallpaper.png
+exec nitrogen --set-auto /home/saverio/Pictures/wallpaper.png
 # Activate linux
 exec_always --no-startup-id ~/.config/i3/activate-linux
 
