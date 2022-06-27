@@ -169,11 +169,11 @@ components.active[2] = {
 		hl = {fg='black'},
 		left_sep = {' ', {str = ' ', hl = {fg = 'fg', bg = 'bg'}}},
 	},
-	-- {
-	--   provider = function ()
-	--       return lsp_status.status()
-	--   end
-	-- },
+	{
+		provider = function ()
+			return lsp_status.status()
+		end
+	},
 
 }
 
@@ -194,9 +194,6 @@ components.active[3] = {
 			-- right_sep = ' '
 		},
 	},
-	{
-		provider = 'battery#component'
-	}
 }
 
 -- components.inactive[1] = { }
