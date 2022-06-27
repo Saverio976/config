@@ -183,7 +183,7 @@ keymap('n', "tf",    "<cmd>lua require('telescope.builtin').find_files( { cwd = 
 --      --> show registers
 keymap('n', '"', ":Telescope registers<CR>", options)
 --      --> show buffers (tb but, i like Alt+z too)
-keymap('n', '<A-z>', ":Telescope buffers", options)
+keymap('n', '<A-z>', ":Telescope buffers<CR>", options)
 
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
 -- ━━━━━━━━━━━━━━━━━❰ end Mappings ❱━━━━━━━━━━━━━━━━ --

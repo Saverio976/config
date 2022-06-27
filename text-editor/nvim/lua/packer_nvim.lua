@@ -287,8 +287,11 @@ return packer.startup {
 			config = [[ require('plugins/nvim-comment-frame') ]]
 		}
 
-		-- TODO: map " to :Telescope registers
 
+		use {
+			'gelguy/wilder.nvim',
+			config = [[ require('plugins/wilder_nvim') ]]
+		}
 		-- ━━━━━━━━━━━━━━━━━❰ DEVELOPMENT ❱━━━━━━━━━━━━━━━━━ --
 
 		----           for flutter/dart
