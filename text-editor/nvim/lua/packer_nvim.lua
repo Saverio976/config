@@ -292,6 +292,12 @@ return packer.startup {
 			'gelguy/wilder.nvim',
 			config = [[ require('plugins/wilder_nvim') ]]
 		}
+
+		use {
+			'Saverio976/music.nvim',
+			requires = { 'voldikss/vim-floaterm' }
+		}
+
 		-- ━━━━━━━━━━━━━━━━━❰ DEVELOPMENT ❱━━━━━━━━━━━━━━━━━ --
 
 		----           for flutter/dart
