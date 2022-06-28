@@ -7,8 +7,6 @@ alias searchd="s-d"
 alias searchf="s-f"
 alias restartx="sudo systemctl restart lightdm.service"
 
-# prompt gpg password on tty
-export GPG_TTY=GPG_TTY=$(tty)
 # xdg config
 export XDG_CONFIG_HOME="$HOME/.config"
 
@@ -35,6 +33,18 @@ fi
 if command -v direnv &> /dev/null
 then
     eval "$(direnv hook zsh)"
+fi
+
+if command -v gpg &> /dev/null && command -v git &> /dev/null
+then
+	OLD_GIT=$(which git)
+	function git () {
+		if [[ "$1" == "commit" ]]
+		then
+			export GPG_TTY=$(tty)
+		fi
+		$OLD_GIT $@
+	}
 fi
 
 ##############################################################################
