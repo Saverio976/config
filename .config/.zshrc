@@ -9,7 +9,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH="$HOME/.config/oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -82,6 +82,7 @@ plugins=(
     zsh-autosuggestions
     zsh-syntax-highlighting
     zsh-history-substring-search
+	sudo
 )
 
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
@@ -106,13 +107,12 @@ source $ZSH/oh-my-zsh.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export GPG_TTY=GPG_TTY=$(tty)
-if command -v nvim &>/dev/null
-then
+if command -v nvim &>/dev/null; then
     export EDITOR=nvim
-elif command -v vim &>/dev/null
-then
+elif command -v vim &>/dev/null; then
     export EDITOR=vim
 else
     export EDITOR=nano
 fi
+
 source $HOME/src/config/misc/bash_ext.sh

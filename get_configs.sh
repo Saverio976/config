@@ -12,6 +12,7 @@ if [[ "$1" == "upload" ]]; then
     mv ./text-editor/install.sh ./text-editor/nvim/install.sh
     rm -rf ./text-editor/nvim/undo
     rm -rf ./text-editor/nvim/plugin
+	# end nvim
 
     # other configs
     rm -rf ./.config/*
@@ -30,6 +31,7 @@ elif [[ "$1" == "install" ]]; then
     cp ./.config/.p10k.zsh $HOME
     cp ./.config/.zshrc $HOME
     echo "next command : sudo cp /usr/bin/pinentry-curses /usr/bin/pinentry"
+	echo "you can cancel this with ctrl+c"
     sudo cp /usr/bin/pinentry-curses /usr/bin/pinentry
     echo "for neovim, see readme"
 else
