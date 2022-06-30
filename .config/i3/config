@@ -177,10 +177,12 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 #lock
-bindsym Control+Mod1+l exec "i3lock -c 000000 --show-failed-attempts --ignore-empty-password -i /home/saverio/Pictures/wallpaper.png && systemctl suspend"
+bindsym Control+Mod1+l exec "i3lock -c 000000 --show-failed-attempts --ignore-empty-password -i /home/saverio/Pictures/wallpaper.png"
 # auto lock the screen
-exec "xautolock -detectsleep -time 3 -locker \"i3lock -c 000000 --show-failed-attempts --ignore-empty-password -i /home/saverio/Pictures/wallpaper.png\""
+exec "xautolock -detectsleep -time 3 -notify 5 -locker \"i3lock -c 000000 --show-failed-attempts --ignore-empty-password -i /home/saverio/Pictures/wallpaper.png\""
 exec "xautolock -time 20 -locker \"systemctl suspend\""
+bindsym Control+Shift+e exec "xautolock -enable"
+bindsym Control+Shift+d exec "xautolock -disable"
 
 # Status bar
 # bar {
