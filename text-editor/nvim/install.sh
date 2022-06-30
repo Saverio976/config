@@ -35,12 +35,13 @@ if [[ "$1" == "-install" || "$1" == "-clean-install" ]]; then
 	fi
 	cd ..
 	cp -r nvim $HOME/.config/
-    # config file for the installation
-    echo ">> now, open nvim and write"
-    echo ":PackerCompile"
-    echo ">> Press enter and write"
-    echo ":PackerInstall"
-	echo ">> Press enter"
+	nvim --headless -c "autocmd User PackerComplete quitall" -c "PackerSync"
+ #    # config file for the installation
+ #    echo ">> now, open nvim and write"
+ #    echo ":PackerCompile"
+ #    echo ">> Press enter and write"
+ #    echo ":PackerInstall"
+	# echo ">> Press enter"
 	exit 0
 fi
 
