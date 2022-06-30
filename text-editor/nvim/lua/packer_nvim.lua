@@ -161,8 +161,8 @@ return packer.startup {
 			config = [[ require('plugins/Comment_nvim') ]]
 		}
 
-		use {
-			'JoosepAlviste/nvim-ts-context-commentstring', --  Neovim treesitter plugin for setting the commentstring based on the cursor location in a file.
+		use { -- Neovim treesitter plugin for setting the commentstring based on the cursor location in a file.
+			'JoosepAlviste/nvim-ts-context-commentstring',
 			config = [[ require('plugins/nvim-ts-context-commentstring') ]]
 		}
 
@@ -296,6 +296,16 @@ return packer.startup {
 		use {
 			'Saverio976/music.nvim',
 			requires = { 'voldikss/vim-floaterm' }
+		}
+
+		use {
+			'airblade/vim-rooter',
+			config = [[ require('plugins/vim_rooter') ]]
+		}
+
+		use {
+			'mvllow/modes.nvim',
+			config = [[ require('plugins/modes_nvim') ]]
 		}
 
 		-- ━━━━━━━━━━━━━━━━━❰ DEVELOPMENT ❱━━━━━━━━━━━━━━━━━ --

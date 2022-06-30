@@ -10,7 +10,7 @@ function help_it ()
 	echo "-clean-install   :    remove config folder, and add a fresh one"
 }
 
-if [[ "$1" == "-h" || "$1" == "--help" ]], then
+if [[ "$1" == "-h" || "$1" == "--help" ]]; then
 	help_it
 	exit 0
 fi
