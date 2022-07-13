@@ -115,4 +115,4 @@ else
     export EDITOR=nano
 fi
 
-source $HOME/src/config/misc/bash_ext.sh
+source $HOME/.config/zsh-extension/zsh_ext.zsh

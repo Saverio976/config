@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 
 # im in the vim matrix
 alias :q="exit"

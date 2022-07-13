@@ -30,10 +30,12 @@ elif [[ "$1" == "install" ]]; then
     rm -f $XDG_CONFIG_HOME/.zshrc
     cp ./.config/.p10k.zsh $HOME
     cp ./.config/.zshrc $HOME
-    echo "next command : sudo cp /usr/bin/pinentry-curses /usr/bin/pinentry"
-	echo "you can cancel this with ctrl+c"
-    sudo cp /usr/bin/pinentry-curses /usr/bin/pinentry
-    echo "for neovim, see readme"
+    if [ -f /usr/bin/pinentry-curses ]; then
+        echo "next command : sudo cp /usr/bin/pinentry-curses /usr/bin/pinentry"
+        echo "you can cancel this with ctrl+c"
+        sudo cp /usr/bin/pinentry-curses /usr/bin/pinentry
+        echo "for neovim, see readme"
+    fi
 else
     echo "valid options : [upload, install]"
 fi
