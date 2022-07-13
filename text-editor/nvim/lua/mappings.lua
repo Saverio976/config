@@ -35,16 +35,6 @@ vim.api.nvim_create_autocmd(
 	}
 )
 
-
--- map ctl+z to nothing so that it don't suspend terminal
-vim.api.nvim_create_autocmd(
-	"BufEnter",
-	{
-		pattern = "*",
-		command = "nnoremap <c-z> <nop>"
-	}
-)
-
 -- keymap('n', '<Leader>q',':q <CR>',      options)
 -- to save file
 keymap('i', '<C-s>', '<ESC>ma<ESC>:w <CR>`a', options)

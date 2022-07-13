@@ -13,7 +13,8 @@
 --]]
 
  -- neovim backup directory
-local backup_dir = vim.fn.expand('~/.cache/nvim')
+local HOME = os.getenv("HOME")
+local backup_dir = vim.fn.expand(HOME .. '/.cache/nvim')
 
 -- define configs
 local configs = {
@@ -63,7 +64,7 @@ local configs = {
 	scrolloff = 1, -- when scrolling, keep cursor 1 lines away from screen border
 	sidescrolloff = 2, -- keep 30 columns visible left and right of the cursor at all times
 	backspace = 'indent,start,eol', -- make backspace behave like normal again
-	-- mouse = "a" , -- turn on mouse interaction
+	mouse = "a" , -- turn on mouse interaction
 	updatetime = 500, -- CursorHold interval
 
 	softtabstop = 4,
@@ -71,14 +72,13 @@ local configs = {
 	tabstop = 4, -- spaces per tab
 	smarttab = true, -- <tab>/<BS> indent/dedent in leading whitespace
 	autoindent = true, -- maintain indent of current line
-	-- expandtab = false, -- don't expand tabs into spaces
+	expandtab = true, -- don't expand tabs into spaces
 
 	shiftround = true,
 
 	splitbelow = true, -- open horizontal splits below current window
 	splitright = true, -- open vertical splits to the right of the current window
 	laststatus = 3, -- always show status line. 3 means Global Status Line
-	-- colorcolumn = "79", -- vertical word limit line
 	cmdheight = 1, -- command height
 
 	hidden = true, -- allows you to hide buffers with unsaved changes without being prompted
@@ -90,7 +90,7 @@ local configs = {
 	completeopt = 'menuone,noselect,noinsert', -- completion options
 
 	ruler = true,
-	colorcolumn = "80"
+	colorcolumn = "89"
 }
 
 -- apply colorscheme without throwing any errors

@@ -43,9 +43,7 @@ require('customs/override_defalut') -- always put this config(override_defalut) 
 -- NOTE: laways load plugins at last
 require('packer_nvim')
 
-local kanagawa_imported_ok, _ = pcall(require, 'kanagawa')
-if not kanagawa_imported_ok then return end
-vim.cmd('colorscheme kanagawa')
+pcall(vim.cmd, 'colorscheme kanagawa')
 
 -- ━━━━━━━━━━━━━━━━━❰ end of Load ❱━━━━━━━━━━━━━━━━━ --
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
