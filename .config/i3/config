@@ -44,6 +44,10 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec kitty
 
+# drop down terminal
+exec_always --no-startup-id kitti3
+bindsym $mod+n nop kitti3
+
 # kill focused window
 bindsym $mod+Shift+q kill
 

@@ -35,6 +35,8 @@ for LINE in $(/bin/cat ./requirements | grep -v -e '^#'); do
     yes | sudo $COMMAND_INSTALL $LINE
 done
 
+pip install kitti3
+
 sudo systemctl enable --now NetworkManager
 sudo systemctl enable --now dhcpcd
 
