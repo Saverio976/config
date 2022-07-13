@@ -25,7 +25,9 @@ if [[ "$1" == "upload" ]]; then
     cp $HOME/.p10k.zsh ./.config
     cp $HOME/.zshrc ./.config
 elif [[ "$1" == "install" ]]; then
+    mv ./.config/git/ /tmp/gitconfigtmp
     cp -r ./.config/* $XDG_CONFIG_HOME
+    mv /tmp/gitconfigtmp ./.config/git
     rm -f $XDG_CONFIG_HOME/.p10k.zsh
     rm -f $XDG_CONFIG_HOME/.zshrc
     cp ./.config/.p10k.zsh $HOME
