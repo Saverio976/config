@@ -28,7 +28,10 @@ replace_command "kill" "fkill"
 # replace cd command
 if command -v zoxide &> /dev/null
 then
-    eval "$(zoxide init zsh --cmd cd)"
+	if [[ "$INSTALL_ZOXIDE_I" != "ok" ]]; then
+		eval "$(zoxide init zsh --cmd z)"
+		export INSTALL_ZOXIDE_I="ok"
+	fi
 fi
 if command -v direnv &> /dev/null
 then
