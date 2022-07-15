@@ -69,7 +69,8 @@ return packer.startup {
 		}
 
 		use { -- Companion plugin for nvim-lspconfig that allows you to seamlessly install LSP servers locally (inside :echo stdpath("data")).
-			'williamboman/nvim-lsp-installer', config = [[ require('plugins/nvim-lsp-installer') ]]
+			'williamboman/nvim-lsp-installer',
+			config = [[ require('plugins/nvim-lsp-installer') ]]
 		}
 
 		use { -- A collection of common configurations for Neovim's built-in language server client
@@ -80,7 +81,8 @@ return packer.startup {
 		}
 
 		use { -- vscode-like pictograms for neovim lsp completion items Topics
-			'onsails/lspkind-nvim', config = [[ require('plugins/lspkind-nvim') ]]
+			'onsails/lspkind-nvim',
+			config = [[ require('plugins/lspkind-nvim') ]]
 		}
 
 		use { -- Nvim Treesitter configurations and abstraction layer
@@ -115,11 +117,13 @@ return packer.startup {
 		}
 
 		use { -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
-			'jose-elias-alvarez/null-ls.nvim', config = [[ require('plugins/null-ls_nvim') ]]
+			'jose-elias-alvarez/null-ls.nvim',
+			config = [[ require('plugins/null-ls_nvim') ]]
 		}
 
 		use { -- A super powerful autopairs for Neovim. It support multiple character.
-			'windwp/nvim-autopairs', config = [[ require('plugins/nvim-autopairs') ]]
+			'windwp/nvim-autopairs',
+			config = [[ require('plugins/nvim-autopairs') ]]
 		}
 
 		use { -- Find, Filter, Preview, Pick. All lua, all the time.
@@ -137,32 +141,39 @@ return packer.startup {
 
 		-- Alt+= : toggle terminal
 		use { -- Use (neo)vim terminal in the floating/popup window.
-			'voldikss/vim-floaterm', config = [[ require('plugins/vim-floaterm') ]]
+			'voldikss/vim-floaterm',
+			config = [[ require('plugins/vim-floaterm') ]]
 		}
 
 		use { -- lua `fork` of vim-web-devicons for neovim
-			'kyazdani42/nvim-web-devicons', config = [[ require('plugins/nvim-web-devicons') ]]
+			'kyazdani42/nvim-web-devicons',
+			config = [[ require('plugins/nvim-web-devicons') ]]
 		}
 
 		-- ;m
 		use {
-			'nyngwang/NeoZoom.lua', config = [[ require('plugins/neozoom_lua') ]]
+			'nyngwang/NeoZoom.lua',
+			config = [[ require('plugins/neozoom_lua') ]]
 		}
 
 		use { -- Smart and powerful comment plugin for neovim. Supports commentstring, dot repeat, left-right/up-down motions, hooks, and more
-			'numToStr/Comment.nvim', config = [[ require('plugins/Comment_nvim') ]]
+			'numToStr/Comment.nvim',
+			config = [[ require('plugins/Comment_nvim') ]]
 		}
 
 		use { -- Neovim treesitter plugin for setting the commentstring based on the cursor location in a file.
-			'JoosepAlviste/nvim-ts-context-commentstring', config = [[ require('plugins/nvim-ts-context-commentstring') ]]
+			'JoosepAlviste/nvim-ts-context-commentstring',
+			config = [[ require('plugins/nvim-ts-context-commentstring') ]]
 		}
 
 		use { -- The fastest Neovim colorizer.
-			'norcalli/nvim-colorizer.lua', config = [[ require('plugins/nvim-colorizer_lua') ]]
+			'norcalli/nvim-colorizer.lua',
+			config = [[ require('plugins/nvim-colorizer_lua') ]]
 		}
 
 		use { --  Indent guides for Neovim
-			'lukas-reineke/indent-blankline.nvim', config = [[ require('plugins/indent-blankline_nvim') ]]
+			'lukas-reineke/indent-blankline.nvim',
+			config = [[ require('plugins/indent-blankline_nvim') ]]
 		}
 
 		use { -- Git signs written in pure lua
@@ -178,25 +189,31 @@ return packer.startup {
 		}
 
 		use { -- A pretty diagnostics, references, telescope results, quickfix and location list to help you solve all the trouble your code is causing.
-			'folke/trouble.nvim', config = [[ require('plugins/trouble_nvim') ]]
+			'folke/trouble.nvim',
+			config = [[ require('plugins/trouble_nvim') ]]
 		}
 
 		use { -- A File Explorer For Neovim Written In Lua
-			'kyazdani42/nvim-tree.lua', config = [[ require('plugins/nvim-tree_lua') ]]
+			'kyazdani42/nvim-tree.lua',
+			config = [[ require('plugins/nvim-tree_lua') ]]
 		}
 
 		use { -- A minimal, stylish and customizable statusline for Neovim written in Lua
 			'feline-nvim/feline.nvim',
-			requires = { 'nvim-lua/lsp-status.nvim', },
+			requires = {
+				'nvim-lua/lsp-status.nvim',
+			},
 			config = [[ require('plugins/feline_nvim') ]]
 		}
 
 		use { --  smart indent and project detector with project based config loader
-			'shaeinst/penvim', config = [[ require('plugins/penvim') ]]
+			'shaeinst/penvim',
+			config = [[ require('plugins/penvim') ]]
 		}
 
 		use { -- preview native LSP's goto definition calls in floating windows.
-			'rmagatti/goto-preview', config = [[ require('plugins/goto-preview') ]]
+			'rmagatti/goto-preview',
+			config = [[ require('plugins/goto-preview') ]]
 		}
 
 		use { -- EditorConfig plugin for Neovim
@@ -204,7 +221,8 @@ return packer.startup {
 		}
 
 		use {
-			'folke/which-key.nvim', config = [[ require('plugins/which-key_nvim') ]]
+			'folke/which-key.nvim',
+			config = [[ require('plugins/which-key_nvim') ]]
 		}
 
 		use {
@@ -226,23 +244,33 @@ return packer.startup {
 		}
 
 		use {
-			'Pocco81/AutoSave.nvim', config = [[ require('plugins/autosave_nvim') ]]
-		}
-
-		-- use {
-		-- 	'matze/vim-move'
-		-- }
-
-		use {
-			'rebelot/kanagawa.nvim', config = [[ require('plugins/kanagawa_nvim') ]]
+			'Pocco81/AutoSave.nvim',
+			config = [[ require('plugins/autosave_nvim') ]]
 		}
 
 		use {
-			'stevearc/dressing.nvim', config = [[ require('plugins/dressing_nvim') ]]
+			'booperlv/nvim-gomove',
+			config = [[ require('plugins/nvim-gomove') ]]
 		}
 
 		use {
-			'RishabhRD/nvim-cheat.sh', requires = { 'RishabhRD/popfix' }
+			'rebelot/kanagawa.nvim',
+			config = [[ require('plugins/kanagawa_nvim') ]]
+		}
+
+		use {
+			'Pocco81/TrueZen.nvim',
+			config = [[ require('plugins/truezen') ]]
+		}
+
+		use {
+			'stevearc/dressing.nvim',
+			config = [[ require('plugins/dressing_nvim') ]]
+		}
+
+		use {
+			'RishabhRD/nvim-cheat.sh',
+			requires = { 'RishabhRD/popfix' }
 		}
 
 		use {
@@ -250,11 +278,13 @@ return packer.startup {
 		}
 
 		use {
-			'rcarriga/nvim-notify', config = [[ require('plugins/nvim-notify') ]]
+			'rcarriga/nvim-notify',
+			config = [[ require('plugins/nvim-notify') ]]
 		}
 
 		use {
-			'lukas-reineke/virt-column.nvim', config = [[ require('plugins/virt-column_nvim') ]]
+			'lukas-reineke/virt-column.nvim',
+			config = [[ require('plugins/virt-column_nvim') ]]
 		}
 
 		use {
@@ -263,21 +293,57 @@ return packer.startup {
 			config = [[ require('plugins/nvim-comment-frame') ]]
 		}
 
+
 		use {
-			'gelguy/wilder.nvim', config = [[ require('plugins/wilder_nvim') ]]
+			'gelguy/wilder.nvim',
+			config = [[ require('plugins/wilder_nvim') ]]
 		}
 
 		use {
-			'Saverio976/music.nvim', run = ':MusicInstall', requires = { 'voldikss/vim-floaterm' }
+			'Saverio976/music.nvim',
+			requires = { 'voldikss/vim-floaterm' }
 		}
 
 		use {
-			'airblade/vim-rooter', config = [[ require('plugins/vim_rooter') ]]
+			'airblade/vim-rooter',
+			config = [[ require('plugins/vim_rooter') ]]
 		}
 
 		use {
-			'mvllow/modes.nvim', config = [[ require('plugins/modes_nvim') ]]
+			'mvllow/modes.nvim',
+			config = [[ require('plugins/modes_nvim') ]]
 		}
+
+		use {
+			'vim-scripts/DoxygenToolkit.vim'
+		}
+
+		-- ━━━━━━━━━━━━━━━━━❰ DEVELOPMENT ❱━━━━━━━━━━━━━━━━━ --
+
+		----           for flutter/dart
+		-- use { -- Tools to help create flutter apps in neovim using the native lsp
+		-- 	'akinsho/flutter-tools.nvim',
+		-- 	ft = {'dart'},
+		-- 	requires = {
+		-- 		{'nvim-lua/plenary.nvim'},
+		-- 		{'Neevash/awesome-flutter-snippets'}, -- collection snippets and shortcuts for commonly used Flutter functions and classes
+		-- 		{
+		-- 			'dart-lang/dart-vim-plugin', -- Syntax highlighting for Dart in Vim
+		-- 			config = [[ require('plugins/dart-vim-plugin') ]]
+		-- 		}
+		-- 	},
+		-- 	config = [[ require('plugins/flutter-tools_nvim') ]]
+		-- }
+
+		--            for Web-Development
+		-- use { --  Use treesitter to auto close and auto rename html tag, work with html,tsx,vue,svelte,php.
+		-- 	"windwp/nvim-ts-autotag",
+		-- 	ft = {'html', 'tsx', 'vue', 'svelte', 'php'},
+		-- 	requires = {'nvim-treesitter/nvim-treesitter'},
+		--
+		-- 	config = [[ require('plugins/nvim-ts-autotag') ]]
+		-- }
+		-- ━━━━━━━━━━━━━━❰ end of DEVELOPMENT ❱━━━━━━━━━━━━━ --
 	end
 }
 
