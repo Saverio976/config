@@ -6,7 +6,7 @@
 	editor = nvim
 [init]
 	defaultBranch = main
-	templateDir = ~/source/SAMPLE_C_PROJECT
+#	templateDir = ~/source/SAMPLE_C_PROJECT
 [pull]
 	rebase = false
 [commit]
