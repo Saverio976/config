@@ -32,7 +32,6 @@ neozoom.setup({})
 
 local keymap = vim.api.nvim_set_keymap
 keymap('n', '<leader>m', ':NeoZoomToggle<CR>', { silent=true, noremap=true })
-keymap('i', '<leader>m', '<Esc>:NeoZoomToggle<CR>i', { silent=true, noremap=true })
 
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
 -- ━━━━━━━━━━━━━━━━━❰ end Mappings ❱━━━━━━━━━━━━━━━━ --

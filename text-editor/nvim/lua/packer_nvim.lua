@@ -318,6 +318,10 @@ return packer.startup {
 			'vim-scripts/DoxygenToolkit.vim'
 		}
 
+		use {
+			'HelifeWasTaken/VimTek'
+		}
+
 		-- ━━━━━━━━━━━━━━━━━❰ DEVELOPMENT ❱━━━━━━━━━━━━━━━━━ --
 
 		----           for flutter/dart

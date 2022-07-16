@@ -90,7 +90,7 @@ local configs = {
 	completeopt = 'menuone,noselect,noinsert', -- completion options
 
 	ruler = true,
-	colorcolumn = "89"
+	colorcolumn = "80"
 }
 
 -- apply colorscheme without throwing any errors
