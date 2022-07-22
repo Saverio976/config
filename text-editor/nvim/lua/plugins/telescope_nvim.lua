@@ -107,12 +107,6 @@ telescope.setup {
 			find_cmd = "fd" -- find command (defaults to `fd`)
 		},
 
-		file_browser = {
-			theme = "ivy",
-			-- disables netrw and use telescope-file-browser in its place
-			hijack_netrw = true,
-		},
-
 		["ui-select"] = {
 			require("telescope.themes").get_dropdown {
 				winblend = 15,
@@ -133,7 +127,6 @@ telescope.setup {
 -- To get telescope-extension loaded and working with telescope,
 -- you need to call load_extension, somewhere after setup function:
 require('telescope').load_extension('fzf')
-require("telescope").load_extension('file_browser')
 require('telescope').load_extension('media_files')
 require("telescope").load_extension("ui-select")
 
