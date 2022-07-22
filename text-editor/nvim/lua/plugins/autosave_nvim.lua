@@ -1,8 +1,8 @@
 
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
 -- ───────────────────────────────────────────────── --
---   Plugin:    vim-floaterm
---   Github:    github.com/folke/Pocco81/AutoSave.nvim
+--   Plugin:    AutoSave.nvim
+--   Github:    github.com/Pocco81/AutoSave.nvim
 -- ───────────────────────────────────────────────── --
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
 
@@ -17,7 +17,11 @@
 local autosave_imported_ok, autosave = pcall(require, 'autosave')
 if not autosave_imported_ok then return end
 
-autosave.setup({ enable = true })
+autosave.setup({
+  enable = true,
+  execution_message = "AutoSaved at " .. vim.fn.strftime("%H:%M:%S") .. " {file:" .. vim.fn.bufname() .. "}",
+  events = {"BufLeave"},
+})
 
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
 -- ━━━━━━━━━━━━━━━━━❰ end Configs ❱━━━━━━━━━━━━━━━━━ --
