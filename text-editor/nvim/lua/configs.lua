@@ -90,7 +90,9 @@ local configs = {
 	completeopt = 'menuone,noselect,noinsert', -- completion options
 
 	ruler = true,
-	colorcolumn = "80"
+	colorcolumn = "80",
+
+	fileformat = 'unix',
 }
 
 -- apply colorscheme without throwing any errors

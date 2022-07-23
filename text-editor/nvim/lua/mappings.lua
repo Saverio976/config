@@ -35,11 +35,6 @@ vim.api.nvim_create_autocmd(
 	}
 )
 
--- keymap('n', '<Leader>q',':q <CR>',      options)
--- to save file
-keymap('i', '<C-s>', '<ESC>ma<ESC>:w <CR>`a', options)
-keymap('n', '<C-s>', '<ESC>ma<ESC>:w <CR>`a', options)
-
 -- scroll window up/down
 keymap('i', '<C-e>', '<ESC><C-e>', silent)
 keymap('i', '<C-y>', '<ESC><C-y>', silent)

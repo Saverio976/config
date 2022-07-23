@@ -55,6 +55,16 @@ vim.api.nvim_create_autocmd(
 	}
 )
 
+vim.nvim_create_augroup(
+	"BufNewFile, BufRead",
+	{
+		desc = "set .h to c filetype",
+		pattern = "*",
+		group = group,
+		command = "set filetype=c"
+	}
+)
+
 -- ━━━━━━━━━━━━━━━━❰ end of Automate ❱━━━━━━━━━━━━━━━━ --
 -- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ --
 
