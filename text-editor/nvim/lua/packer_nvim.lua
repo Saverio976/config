@@ -243,11 +243,6 @@ return packer.startup {
 		}
 
 		use {
-			'Pocco81/AutoSave.nvim',
-			config = [[ require('plugins/autosave_nvim') ]]
-		}
-
-		use {
 			'booperlv/nvim-gomove',
 			config = [[ require('plugins/nvim-gomove') ]]
 		}

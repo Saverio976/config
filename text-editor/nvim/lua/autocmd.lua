@@ -25,6 +25,10 @@ vim.cmd([[
 	endif
 ]])
 
+vim.cmd([[
+au! BufLeave <buffer> if &modified == 1 | write | endif
+]])
+
 vim.api.nvim_create_autocmd(
 	"BufWritePre",
 	{
@@ -55,13 +59,23 @@ vim.api.nvim_create_autocmd(
 	}
 )
 
-vim.nvim_create_augroup(
-	"BufNewFile, BufRead",
+vim.api.nvim_create_autocmd(
+	"BufNewFile,BufRead",
 	{
 		desc = "set .h to c filetype",
-		pattern = "*",
+		pattern = "*.h",
 		group = group,
 		command = "set filetype=c"
+	}
+)
+
+vim.api.nvim_create_autocmd(
+	"BufNewFile,BufRead",
+	{
+		desc = "set .v to v filetype",
+		pattern = "*.v",
+		group = group,
+		command = "set filetype=v"
 	}
 )
 
