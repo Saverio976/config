@@ -207,7 +207,7 @@ exec --no-startup-id xrandr --output Virtual1 --mode 1680x1050
 # Wallpaper select
 exec nitrogen --set-auto /home/saverio/Pictures/wallpaper.png
 # Activate linux
-exec_always --no-startup-id ~/.config/i3/activate-linux
+# exec_always --no-startup-id ~/.config/i3/activate-linux
 
 # exec teams on startup
 #exec --no-startup-id teams --disable-seccomp-filter-sandbox
