@@ -26,7 +26,7 @@ vim.cmd([[
 ]])
 
 vim.cmd([[
-au! BufLeave <buffer> if &modified == 1 | write | endif
+	au! BufLeave * if &modified == 1 | write | endif
 ]])
 
 vim.api.nvim_create_autocmd(
@@ -60,7 +60,7 @@ vim.api.nvim_create_autocmd(
 )
 
 vim.api.nvim_create_autocmd(
-	"BufNewFile,BufRead",
+	"BufRead",
 	{
 		desc = "set .h to c filetype",
 		pattern = "*.h",
@@ -70,7 +70,7 @@ vim.api.nvim_create_autocmd(
 )
 
 vim.api.nvim_create_autocmd(
-	"BufNewFile,BufRead",
+	"BufRead",
 	{
 		desc = "set .v to v filetype",
 		pattern = "*.v",
